@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="pt" extends="struts-default"> 
+		<interceptors>
+			<interceptor name="loginfoInterceptor" class="util.interceptor.LoginfoInterceptor"/>
+		</interceptors>
+		<default-interceptor-ref name="defaultStack"/>
+		<global-results>
+			<result name="login" type="redirect">
+				<param name="location">/login.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">/error.jsp</param>
+			</result>
+		</global-results>
+		
+		<!-- 登录验证 -->
+		<action name="login" class="loginAction" method="login">
+			<result name="success">/login.jsp</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="doLogin" class="loginAction"  method="doLogin">
+		</action>
+		<action name="loginOut" class="loginAction"  method="loginOut">
+			<result name="sys" type="redirect">/login.jsp</result>
+		</action>
+		<action name="doLoginSuccess" class="loginAction"  method="doLoginSuccess">
+			<result name="success">/index.jsp</result>
+			<interceptor-ref name="loginfoInterceptor"></interceptor-ref>
+		</action>
+		<action name="top" class="indexAction" method="top">
+			<result name="success">/top.jsp</result>
+		</action>
+		<action name="left" class="indexAction" method="left">
+			<result name="success">/left.jsp</result>
+		</action>
+		<action name="indexFrame" class="indexAction">
+			<result name="success">/indexFrame.jsp</result>
+		</action>
+	</package>
+	
+	<include file="pt/xtgl/xtgl.xml"/>
+	<include file="pt/wzgl/wzgl.xml"/>
+</struts>

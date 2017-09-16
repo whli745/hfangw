@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 内容管理xml -->
+	<package name="nrgl" extends="wzgl">
+		<default-interceptor-ref name="defaultStack" />
+		<!-- 栏目树形结构处理 -->
+		<action name="showInfoTcategoryList" class="contentManagerAction"  method="showInfoTcategoryList">
+			<result name="success">/pt/wzgl/nrgl/showInfoTcategoryList.jsp</result>
+		</action>
+		
+		<action name="getInfoTcategoryTreeAjax" class="contentManagerAction"  method="getInfoTcategoryTreeAjax"></action>
+		<action name="getJSONInfoTcategory" class="contentManagerAction" method="getJSONInfoTcategory"></action>
+		<action name="editInfoTcategoryAjax" class="contentManagerAction"  method="editInfoTcategoryAjax"></action>
+		<action name="delInfoTcategoryAjax" class="contentManagerAction"  method="delInfoTcategoryAjax"></action>
+		
+		<!-- 栏目信息 -->
+		<action name="queryInfoTcategoryList" class="contentManagerAction" method="queryInfoTcategoryList">
+			<result>/pt/wzgl/nrgl/queryInfoTcategoryList.jsp</result>
+		</action>
+		
+		<action name="initInfoTcategory" class="contentManagerAction" method="initInfoTcategory">
+			<result>/pt/wzgl/nrgl/initInfoTcategory.jsp</result>
+		</action>
+		
+		<action name="saveInfoTcategory" class="contentManagerAction"  method="saveInfoTcategory">
+			<result name="success" type="redirectAction">
+				<param name="actionName">queryInfoTcategoryList.action</param>
+				<param name="infoTcategory.parentId">${infoTcategory.parentId}</param>
+				<param name="infoTcategory.rank">${infoTcategory.rank}</param>
+			</result>
+		</action>
+		
+		<action name="usingInfoTcategory" class="contentManagerAction"  method="usingInfoTcategory">
+			<result name="success" type="redirectAction">
+				<param name="actionName">queryInfoTcategoryList.action</param>
+				<param name="infoTcategory.parentId">${infoTcategory.parentId}</param>
+				<param name="infoTcategory.rank">${infoTcategory.rank}</param>
+			</result>
+		</action>
+		
+		<action name="delInfoTcategory" class="contentManagerAction"  method="delInfoTcategory">
+			<result name="success" type="redirectAction">
+				<param name="actionName">queryInfoTcategoryList.action</param>
+				<param name="infoTcategory.parentId">${infoTcategory.parentId}</param>
+				<param name="infoTcategory.rank">${infoTcategory.rank}</param>
+			</result>
+		</action>
+		
+		<action name="getInfoTcategoryDetail" class="contentManagerAction" method="getInfoTcategoryDetail">
+			<result>/pt/wzgl/nrgl/getInfoTcategoryDetail.jsp</result>
+		</action>
+		<!-- 生成索引Action -->
+		<action name="createLucene" class="contentManagerAction" method="createLucene"></action>
+		
+		
+		<!-- 内容发布管理 -->
+		<action name="queryInfoTcontentList" class="contentManagerAction" method="queryInfoTcontentList">
+			<result>/pt/wzgl/nrgl/queryInfoTcontentList.jsp</result>
+		</action>
+		<action name="initInfoTcontent" class="contentManagerAction" method="initInfoTcontent">
+			<result>/pt/wzgl/nrgl/initInfoTcontent.jsp</result>
+		</action>
+		<action name="editInfoTcontent" class="contentManagerAction" method="editInfoTcontent">
+			<result>/pt/wzgl/nrgl/editInfoTcontent.jsp</result>
+		</action>
+	
+		<action name="getInfoTcontentDetial" class="contentManagerAction" method="getInfoTcontentDetial">
+			<result>/pt/wzgl/nrgl/getInfoTcontentDetial.jsp</result>
+		</action>
+		<action name="getAuditInfoTcontentDetial" class="contentManagerAction" method="getInfoTcontentDetial">
+			<result>/pt/wzgl/nrgl/getAuditInfoTcontentDetial.jsp</result>
+		</action>
+		<action name="saveOrUpdateInfoTcontent" class="contentManagerAction" method="saveOrUpdateInfoTcontent">
+			<result>/pt/wzgl/nrgl/queryInfoTcontentListReload.jsp</result>
+		</action>
+		<action name="delInfoTcontent" class="contentManagerAction" method="delInfoTcontent">
+			<result name="success" type="redirectAction">
+				<param name="actionName">queryInfoTcontentList.action</param>
+			</result>
+		</action>
+		<action name="usingInfoTcontent" class="contentManagerAction" method="usingInfoTcontent">
+			<result name="success" type="redirectAction">
+				<param name="actionName">queryInfoTcontentList.action</param>
+			</result>
+		</action>
+		<action name="batchEnableInfoTcontent" class="contentManagerAction"  method="batchEnableInfoTcontent">
+			<result name="success" type="redirectAction">
+				<param name="actionName">queryInfoTcontentList.action</param>
+			</result>
+		</action>
+		
+		<!-- 内容发布审核管理 start -->
+		<action name="initAuditInfoTcontent" class="contentManagerAction"  method="initAuditInfoTcontent">
+			<result>/pt/wzgl/nrgl/initAuditInfoTcontent.jsp</result>
+		</action>
+		<action name="queryAuditInfoTcontentList" class="contentManagerAction"  method="queryAuditInfoTcontentList">
+			<result>/pt/wzgl/nrgl/queryAuditInfoTcontentList.jsp</result>
+		</action>
+		<action name="auditInfoTcontent" class="contentManagerAction"  method="auditInfoTcontent">
+			<result>/pt/wzgl/nrgl/auditInfoTcontent.jsp</result>
+		</action>
+		<action name="addOrUpdateAuditInfoContent" class="contentManagerAction"  method="addOrUpdateAuditInfoContent" />
+			
+		<action name="batchAuditInfoTcontent" class="contentManagerAction"  method="batchAuditInfoTcontent">
+			<result name="success" type="redirectAction">
+				<param name="actionName">queryAuditInfoTcontentList.action</param>
+			</result>
+		</action>
+		
+		<action name="getcategoryContent" class="contentManagerAction"  method="getcategoryContent">
+			<result name="jump" type="redirect">${jumpUrl}</result>
+			<result name="success">
+				<param name="actionName">queryAuditInfoTcontentList.action</param>
+			</result>
+			<result name="showList">/web/webPublish.jsp</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<!-- 内容发布审核管理 end -->
+		
+		<!-- 回收站 start -->
+		<action name="queryInfoTcontentRecycleList" class="contentManagerAction"  method="queryInfoTcontentRecycleList">
+			<result>/pt/wzgl/nrgl/queryInfoTcontentRecycleList.jsp</result>
+		</action>
+		<action name="getInfoTcontentRecycleDetial" class="contentManagerAction"  method="getInfoTcontentDetial">
+			<result>/pt/wzgl/nrgl/getInfoTcontentRecycleDetial.jsp</result>
+		</action>
+		<action name="shiftDeleteInfoTcontent" class="contentManagerAction"  method="shiftDeleteInfoTcontent">
+			<result name="success" type="redirectAction">
+				<param name="actionName">queryInfoTcontentRecycleList.action</param>
+			</result>
+		</action>
+		<action name="restoreInfoTcontent" class="contentManagerAction"  method="restoreInfoTcontent">
+			<result name="success" type="redirectAction">
+				<param name="actionName">queryInfoTcontentRecycleList.action</param>
+			</result>
+		</action>
+		<action name="batchRestoreInfoContent" class="contentManagerAction"  method="batchRestoreInfoContent">
+			<result name="success" type="redirectAction">
+				<param name="actionName">queryInfoTcontentRecycleList.action</param>
+			</result>
+		</action>
+		<action name="emptyRecycleInfoTcontent" class="contentManagerAction"  method="emptyRecycleInfoTcontent">
+			<result name="success" type="redirectAction">
+				<param name="actionName">queryInfoTcontentRecycleList.action</param>
+			</result>
+		</action>
+		<action name="saveOrUpdateBszn" class="contentManagerAction"  method="saveOrUpdateBszn">
+			<result name="success" type="redirectAction">
+				<param name="actionName">queryInfoTcontentList.action</param>
+			</result>
+		</action>
+		<!-- 回收站 end -->
+	
+	</package>
+</struts>

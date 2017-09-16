@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pt.wzgl.pzgl.pojo.NetUserModule" table="T_NET_USER_MODULE">
+        <id name="moduleId" type="java.lang.String">
+            <column name="module_id"/>
+            <generator class="uuid.hex"/>
+        </id>
+        <property name="moduleName" type="java.lang.String">
+            <column name="module_name" length="100" />
+        </property>
+        <property name="moduleUrl" type="java.lang.String">
+            <column name="module_url" length="100" />
+        </property>
+        <property name="parentId" type="java.lang.String">
+            <column name="PARENT_ID" length="32" />
+        </property>
+        <property name="moduleApp" type="java.lang.String">
+            <column name="module_app" length="200" />
+        </property>
+        <property name="moduleDate" type="java.util.Date">
+            <column name="module_date"  />
+        </property>
+        <property name="moduleTag" type="java.lang.String">
+            <column name="module_tag" length="200" />
+        </property>
+        <property name="moduleDesc" type="java.lang.String">
+            <column name="module_desc" length="20" />
+        </property>
+        <property name="moduleStatus" type="java.lang.String">
+            <column name="module_status" length="1" />
+        </property>
+        <property name="moduleType" type="java.lang.String">
+            <column name="module_type" length="1" />
+        </property>
+        <property name="moduleControl" type="java.lang.String">
+            <column name="module_control" length="50" />
+        </property>
+        <property name="moduleImg" type="java.lang.String">
+            <column name="module_img" length="50" />
+        </property>
+        <property name="moduleLevel" type="java.lang.Integer">
+            <column name="module_level" length="1" />
+        </property>
+        <property name="delFlag" type="java.lang.String">
+            <column name="del_flag" length="1" />
+        </property>
+        <property name="moduleOrder" type="java.lang.Integer">
+            <column name="module_order"  />
+        </property>
+        <property name="modulePids" type="java.lang.String">
+            <column name="module_pids" length="500" />
+        </property>
+        <property name="controlType" type="java.lang.String">
+            <column name="control_type" length="1" />
+        </property>
+        <property name="isValidate" type="java.lang.String">
+            <column name="is_validate" length="1" />
+        </property>
+        <property name="validateContent" type="java.lang.String">
+            <column name="validate_content" length="100" />
+        </property>
+        <property name="isJsRequest" type="java.lang.String">
+            <column name="is_js_request" length="1" />
+        </property>
+        <property name="menuOwner" type="java.lang.String">
+            <column name="menu_owner" length="2" />
+        </property>
+        <property name="authen" type="java.lang.String">
+            <column name="authen" length="1" />
+        </property>
+        <property name="modulePath" type="java.lang.String" column="MODULE_PATH" length="400" />
+        <property name="updateTime" type="java.util.Date" column="UPDATE_TIME" length="23" />
+    </class>
+</hibernate-mapping>

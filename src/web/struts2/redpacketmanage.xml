@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="redpacket" extends="default">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="queryHFWContantsList" class="redpacketManageAction" method="queryHFWContantsList">
+			<result name="success">/redpacket/queryHfwContactsList.jsp</result>
+		</action>
+		<action name="hfwContactsEdit" class="redpacketManageAction" method="hfwContactsEdit">
+			<!--<result name="success">queryHFWContantsList.action</result>-->
+		</action>
+	</package>
+</struts>

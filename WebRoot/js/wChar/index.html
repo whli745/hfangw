@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="GBK">
+    <title>wChar :: jQuery Character Counter Plugin</title>
+    <script type="text/javascript" src="./assets/jquery.1.9.1.min.js"></script>
+	<script>
+	function getByteLen(val) {
+		var len = 0;
+		for (var i = 0; i < val.length; i++) {
+			if (val[i].match(/[^\x00-\xff]/ig) != null) {
+				len += 2;
+			} else {
+				len += 1;
+			}
+		}
+		return len;
+	}
+
+	</script>
+</head>
+<body>
+        <script type="text/javascript" src="./wChar.js"></script>
+        <link rel="Stylesheet" type="text/css" href="./wChar.css" />
+
+        <div class="content-box">
+            <label>Username:</label> <input type="text"  data-maxlength="32" style="width:100px;"/><br/>
+			<label>121212:</label> <input type="text"  style="width:100px;"/><br/>
+            <label>Bio:</label> <textarea cols="30" rows="6"  data-maxlength="10" style="width:165px;"></textarea>
+        </div>
+
+        <script type="text/javascript">
+            $('input:text, input:password, textarea').wChar();
+        </script>
+
+</body>
+</html>

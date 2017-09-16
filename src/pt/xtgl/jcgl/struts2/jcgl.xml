@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="jcgl" extends="xtgl">
+		<default-interceptor-ref name="defaultStack" />
+		<!-- 区划管理start -->
+		<action name="initSysArea" class="sysAreaAction" method="initSysArea">
+			<result name="success">/pt/xtgl/jcgl/sysAreaEdit.jsp</result>
+		</action>
+		<!-- 区划管理end -->
+
+		<!-- 机构管理begin -->
+		<action name="querySysOrganList" class="sysOrganAction" method="querySysOrganList">
+			<result name="success">/pt/xtgl/jcgl/sysOrganList.jsp</result>
+		</action>
+		<action name="querySysOrganListgzt" class="sysOrganAction"
+			method="querySysOrganListgzt">
+			<result name="success">/pt/xtgl/jcgl/sysOrganListgzt.jsp</result>
+		</action>
+		<action name="initSysOrgan" class="sysOrganAction" method="initSysOrgan">
+			<result name="success">/pt/xtgl/jcgl/sysOrganEdit.jsp</result>
+		</action>
+		<action name="saveOrUpdateOrgan" class="sysOrganAction" method="saveOrUpdateOrgan">
+			<result name="success" type="redirectAction">
+				<param name="actionName">querySysOrganList.action</param>
+				<param name="areaId">${areaId}</param>
+			</result>
+		</action>
+		<action name="getSysOrganDetail" class="sysOrganAction" method="getSysOrganDetail">
+			<result name="success">/pt/xtgl/jcgl/sysOrganDetail.jsp</result>
+		</action>
+		<action name="delSysOrgan" class="sysOrganAction" method="delSysOrgan">
+			<result name="success" type="redirectAction">
+				<param name="actionName">querySysOrganList.action</param>
+				<param name="areaId">${areaId}</param>
+			</result>
+		</action>
+		<!-- 机构管理end -->
+
+
+		<!-- 菜单管理start -->
+		<action name="initSysModule" class="sysModuleAction" method="initSysModule">
+			<result name="success">/pt/xtgl/jcgl/sysModuleEdit.jsp</result>
+		</action>
+		<action name="editSysModuleAjax" class="sysModuleAction" method="editSysModuleAjax">
+		</action>
+		<action name="getJSONSysModule" class="sysModuleAction" method="getJSONSysModule">
+		</action>
+		<action name="delSysModuleAjax" class="sysModuleAction" method="delSysModuleAjax">
+		</action>
+		<action name="getModuleTreeAjax" class="sysModuleAction" method="getModuleTreeAjax">
+		</action>
+		<!-- 菜单管理end -->
+		<!-- 权限管理start -->
+		<action name="querySysRoleList" class="sysRoleAction" method="querySysRoleList">
+			<result name="success">/pt/xtgl/jcgl/sysRoleList.jsp</result>
+		</action>
+		<action name="querySysRoleListgzt" class="sysRoleAction"
+			method="querySysRoleListgzt">
+			<result name="success">/pt/xtgl/jcgl/sysRoleListgzt.jsp</result>
+		</action>
+		<action name="initSysRole" class="sysRoleAction" method="initSysRole">
+			<result name="success">/pt/xtgl/jcgl/sysRoleEdit.jsp</result>
+		</action>
+		<action name="editSysRole" class="sysRoleAction" method="editSysRole">
+			<result name="success" type="redirectAction">
+				<param name="actionName">querySysRoleList.action</param>
+				<param name="areaId">${areaId}</param>
+				<param name="areaName">${areaName}</param>
+			</result>
+		</action>
+		<action name="delSysRole" class="sysRoleAction" method="delSysRole">
+			<result name="success" type="redirectAction">
+				<param name="actionName">querySysRoleList.action</param>
+				<param name="areaId">${areaId}</param>
+				<param name="areaName">${areaName}</param>
+			</result>
+		</action>
+		<action name="getSysRoleDetail" class="sysRoleAction" method="getSysRoleDetail">
+			<result name="success">/pt/xtgl/jcgl/sysRoleDetail.jsp</result>
+		</action>
+		<!-- 权限管理end -->
+		<!-- 系统日志管理start -->
+		<action name="querySysLog" class="logInfoAction">
+			<result name="success">/pt/xtgl/jcgl/sysLog.jsp</result>
+		</action>
+		<action name="queryLogActionDescList" class="logInfoAction" method="queryLogActionDescList">
+			<result name="success">/pt/xtgl/jcgl/logActionDescList.jsp
+			</result>
+		</action>
+		<action name="deleteLogActionDesc" class="logInfoAction"
+			method="deleteLogActionDesc">
+			<result name="success" type="redirectAction">
+				<param name="actionName">queryLogActionDescList.action</param>
+				<param name="sqlObj.actionDesc">${sqlObj.actionDesc}</param>
+				<param name="sqlObj.actionUrl">${sqlObj.actionUrl}</param>
+			</result>
+		</action>
+		<action name="editLogActionDesc" class="logInfoAction" method="editLogActionDesc">
+			<result name="success" type="redirectAction">
+				<param name="actionName">queryLogActionDescList.action</param>
+				<param name="sqlObj.actionDesc">${sqlObj.actionDesc}</param>
+				<param name="sqlObj.actionUrl">${sqlObj.actionUrl}</param>
+			</result>
+		</action>
+		<action name="initLogActionDesc" class="logInfoAction" method="initLogActionDesc">
+			<result name="success">/pt/xtgl/jcgl/logActionDescEdit.jsp
+			</result>
+		</action>
+		<action name="queryLogInfoList" class="logInfoAction" method="queryLogInfoList">
+			<result name="success">/pt/xtgl/jcgl/logInfoList.jsp</result>
+		</action>
+		<action name="queryLogInfo" class="logInfoAction" method="queryLogInfo">
+			<result name="success">/pt/xtgl/jcgl/logInfoDetail.jsp
+			</result>
+		</action>
+		<action name="deleteLogInfo" class="logInfoAction" method="deleteLogInfo">
+			<result name="success" type="redirectAction">
+				<param name="actionName">queryLogInfoList.action</param>
+				<param name="userName">${userName}</param>
+				<param name="areaId">${areaId}</param>
+				<param name="areaName">${areaName}</param>
+				<param name="roleId">${roleId}</param>
+				<param name="serviceType">${serviceType}</param>
+				<param name="startDate">${startDate}</param>
+				<param name="endDate">${endDate}</param>
+			</result>
+		</action>
+		<action name="clearSysLog" class="logInfoAction" method="clearSysLog">
+			<result name="success" type="redirectAction">
+				<param name="actionName">queryLogInfoList.action</param>
+				<param name="userName">${userName}</param>
+				<param name="areaId">${areaId}</param>
+				<param name="areaName">${areaName}</param>
+				<param name="roleId">${roleId}</param>
+				<param name="serviceType">${serviceType}</param>
+				<param name="startDate">${startDate}</param>
+				<param name="endDate">${endDate}</param>
+			</result>
+		</action>
+		<!-- 系统日志管理end -->
+
+		<!-- 用户管理start -->
+		<action name="initSysUserPassword" class="sysUserAction"
+			method="initSysUserPassword">
+			<result name="success">/pt/xtgl/jcgl/updateSysUserPassWord.jsp</result>
+		</action>
+		<action name="editSysUserPassword" class="sysUserAction"
+			method="editSysUserPassword">
+			<result name="success">/login.jsp</result>
+		</action>
+		<action name="checSysUserPassword" class="sysUserAction"
+			method="checSysUserPassword">
+		</action>
+
+		<action name="initSysUser" class="sysUserAction" method="initSysUser">
+			<result name="success" type="redirectAction">
+				<param name="actionName">querySysUserList.action</param>
+				<param name="areaId">${areaId}</param>
+				<param name="areaName">${areaName}</param>
+			</result>
+		</action>
+		<action name="deleteSysUser" class="sysUserAction" method="deleteSysUser">
+			<result name="success" type="redirectAction">
+				<param name="actionName">querySysUserList.action</param>
+				<param name="areaId">${areaId}</param>
+				<param name="areaName">${areaName}</param>
+			</result>
+		</action>
+		<action name="querySysUserList" class="sysUserAction" method="querySysUserList">
+			<result name="success">/pt/xtgl/jcgl/sysUserInfoList.jsp</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<action name="querySysUserListgzt" class="sysUserAction"
+			method="querySysUserListgzt">
+			<result name="success">/pt/xtgl/jcgl/sysUserInfoListgzt.jsp</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<action name="editSysUser" class="sysUserAction" method="editSysUser">
+			<result name="success">/pt/xtgl/jcgl/sysUserInfoEdit.jsp</result>
+		</action>
+		<action name="getSysUserInfo" class="sysUserAction" method="getSysUserInfo">
+			<result name="success">/pt/xtgl/jcgl/sysUserInfoDetail.jsp</result>
+		</action>
+		<action name="editMyUserInfo" class="sysUserAction" method="editMyUserInfo">
+			<result name="success">/pt/xtgl/jcgl/sysUserEdit.jsp</result>
+		</action>
+		<!-- 用户管理end -->
+		<!-- 数据字典start -->
+		<action name="initSysDictInfo" class="sysDictAction">
+			<result name="success">/pt/xtgl/jcgl/sysDictInfoEdit.jsp</result>
+		</action>
+
+		<action name="getSysDictTreeAjax" class="sysDictAction" method="getSysDictTreeAjax"></action>
+
+		<action name="getSysDictTreeStrAjax" class="sysDictAction"
+			method="getSysDictTreeStrAjax">
+			<interceptor-ref name="defaultStack" />
+		</action>
+
+		<action name="editSysDictAjax" class="sysDictAction" method="editSysDictAjax"></action>
+
+		<action name="delSysDictAjax" class="sysDictAction" method="delSysDictAjax"></action>
+
+		<action name="getJSONSysDict" class="sysDictAction" method="getJSONSysDict"></action>
+		<!-- 数据字典end -->
+		
+		<!--节假日管理-->
+		<action name="querySysHolidayList" class="sysHolidayAction" method="querySysHolidayList">
+			<result name="success">/pt/xtgl/jcgl/sysHolidayList.jsp</result>
+		</action>
+		<action name="getSysHoliday" class="sysHolidayAction" method="getSysHoliday">
+			<result name="success">/pt/xtgl/jcgl/getSysHoliday.jsp</result>
+		</action>
+		<action name="initSysHoliday" class="sysHolidayAction" method="initSysHoliday">
+			<result name="success">/pt/xtgl/jcgl/initSysHoliday.jsp</result>
+		</action>
+		<action name="saveSysHoliday" class="sysHolidayAction" method="saveSysHoliday">
+			<result name="success" type="redirectAction">
+				<param name="actionName">querySysHolidayList.action</param>
+			</result>
+		</action>
+		<action name="deleteSysHoliday" class="sysHolidayAction" method="deleteSysHoliday">
+			<result name="success" type="redirectAction">
+				<param name="actionName">querySysHolidayList.action</param>
+			</result>
+		</action>
+		<!--节假日管理-->
+		
+		<!-- 公告管理start -->
+		<action name="initSysNotice" class="sysNoticeAction"  method="initSysNotice">
+			<result name="success">/pt/xtgl/jcgl/sysNoticeEdit.jsp</result>
+		</action>
+		<action name="deleteSysNotice" class="sysNoticeAction"  method="deleteSysNotice">
+			<result name="success" type="redirectAction">
+				<param name="actionName">querySysNoticeList.action</param> 
+				<param name="areaId">${areaId}</param>
+				<param name="areaName">${areaName}</param>
+			</result>
+		</action>
+		<action name="editSysNotice" class="sysNoticeAction"  method="editSysNotice">
+			<result name="success" type="redirectAction">
+				<param name="actionName">querySysNoticeList.action</param> 
+				<param name="areaId">${areaId}</param>
+				<param name="areaName">${areaName}</param>
+			</result>
+		</action>
+		<action name="querySysNoticeList" class="sysNoticeAction"  method="querySysNoticeList">
+			<result name="success">/pt/xtgl/jcgl/sysNoticeList.jsp</result>
+		</action>
+		<action name="querySysNoticeListgzt" class="sysNoticeAction"  method="querySysNoticeListgzt">
+			<result name="success">/pt/xtgl/jcgl/sysNoticeListgzt.jsp</result>
+		</action>
+		<action name="getSysNoticeInfo" class="sysNoticeAction"  method="getSysNoticeInfo">
+			<result name="success">/pt/xtgl/jcgl/sysNoticeDetail.jsp</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<action name="sysTOPNoticeInto" class="sysNoticeAction"  method="sysTOPNoticeInto">
+			<result name="success">/pt/xtgl/jcgl/sysTOPNoticeInto.jsp</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<action name="queryTOPSysNoticeList" class="sysNoticeAction"  method="queryTOPSysNoticeList">
+			<result name="success">/pt/xtgl/jcgl/sysTOPNoticeList.jsp</result>
+		</action>
+		<action name="getSysTOPNoticeInfo" class="sysNoticeAction"  method="getSysNoticeInfo">
+			<result name="success">/pt/xtgl/jcgl/sysTOPNoticeDetail.jsp</result>
+		</action>
+		<!-- 公告管理end -->
+		
+		<!-- 工作台管理start -->
+		<action name="querySysWorkbenchList" class="sysWorkbenchAction" method="querySysWorkbenchList">
+			<result name="success">/pt/xtgl/jcgl/sysWorkbenchList.jsp</result>
+		</action>
+		<action name="querySysWorkbenchListgzt" class="sysWorkbenchAction" method="querySysWorkbenchListgzt">
+			<result name="success">/pt/xtgl/jcgl/sysWorkbenchListgzt.jsp</result>
+		</action>
+		<action name="editSysWorkbench" class="sysWorkbenchAction" method="editSysWorkbench">
+			<result name="success" type="redirectAction">
+				<param name="actionName">querySysWorkbenchList.action</param> 
+				<param name="areaId">${areaId}</param>
+				<param name="areaName">${areaName}</param>
+			</result>
+		</action>
+		<action name="deleteSysWorkbench" class="sysWorkbenchAction" method="deleteSysWorkbench">
+			<result name="success" type="redirectAction">
+				<param name="actionName">querySysWorkbenchList.action</param> 
+				<param name="workbenchServiceType">${workbenchServiceType}</param>
+				<param name="areaId">${areaId}</param>
+				<param name="areaName">${areaName}</param>
+			</result>
+		</action>
+		<action name="initSysWorkbench" class="sysWorkbenchAction" method="initSysWorkbench">
+			<result name="success">/pt/xtgl/jcgl/sysWorkbenchedit.jsp</result>
+		</action>
+		<!-- 工作台管理end -->
+		
+		<!-- 系统参数 start -->
+		<action name="initSysAppParamInfo" class="sysAppParamAction">
+			<result name="success">/pt/xtgl/jcgl/sysAppParamInfoEdit.jsp</result>
+		</action>
+
+		<action name="getSysAppParamTreeAjax" class="sysAppParamAction" method="getSysAppParamTreeAjax"></action>
+
+		<action name="getSysAppParamTreeStrAjax" class="sysAppParamAction" method="getSysAppParamTreeStrAjax">
+			<interceptor-ref name="defaultStack" />
+		</action>
+
+		<action name="editSysAppParamAjax" class="sysAppParamAction" method="editSysAppParamAjax"></action>
+
+		<action name="delSysAppParamAjax" class="sysAppParamAction" method="delSysAppParamAjax"></action>
+
+		<action name="getJSONSysAppParam" class="sysAppParamAction" method="getJSONSysAppParam"></action>
+		
+		<action name="chkSysAppParamCodeUniqueAjax" class="sysAppParamAction" method="chkSysAppParamCodeUniqueAjax"></action>
+		<!-- 系统参数 end -->
+	</package>
+</struts>

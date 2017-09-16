@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="buidingmanage" extends="default"> 
+		<default-interceptor-ref name="defaultStack" />
+		<action name="queryHousingProjectList" class="buidingManageAction" method="queryHousingProjectList">
+			<result name="success">/buidingmanage/queryHousingProjectList.jsp</result>
+		</action>
+		<action name="initHousingProjectEdit" class="buidingManageAction" method="initHousingProjectEdit">
+			<result name="success">/buidingmanage/initHousingProjectEdit.jsp</result>
+		</action>
+		<action name="housingProjectEdit" class="buidingManageAction" method="housingProjectEdit">
+			<result name="success" type="redirect">queryHousingProjectList.action?proj_type=${proj_type}</result>
+		</action>
+		<action name="delHousingProject" class="buidingManageAction" method="delHousingProject">
+		</action>
+		<action name="yuyueKftFrames" class="buidingManageAction" method="yuyueKftFrames">
+			<result name="success">/buidingmanage/yuyueKftFrames.jsp</result>
+		</action>
+		<action name="queryPlatKftList" class="buidingManageAction" method="queryPlatKftList">
+			<result name="success">/buidingmanage/queryPlatKftList.jsp</result>
+		</action>
+		<action name="queryPlanKftList" class="buidingManageAction" method="queryPlanKftList">
+			<result name="success">/buidingmanage/queryPlanKftList.jsp</result>
+		</action>
+		<action name="queryRealtyConsultantList" class="buidingManageAction" method="queryRealtyConsultantList">
+			<result name="success">/buidingmanage/queryRealtyConsultantList.jsp</result>
+		</action>
+		<action name="initHfwRealtyConsultantEdit" class="buidingManageAction" method="initHfwRealtyConsultantEdit">
+			<result name="success">/buidingmanage/initHfwRealtyConsultantEdit.jsp</result>
+		</action>
+		<action name="delHfwRealtyConsultantAjax" class="buidingManageAction" method="delHfwRealtyConsultantAjax">
+		</action>
+		<action name="markHandledAjax" class="buidingManageAction" method="markHandledAjax">
+		</action>
+		<action name="editHfwRealtyConsultant" class="buidingManageAction" method="editHfwRealtyConsultant">
+			<result name="success" type="redirect">queryRealtyConsultantList.action</result>
+		</action>
+	</package>
+</struts>

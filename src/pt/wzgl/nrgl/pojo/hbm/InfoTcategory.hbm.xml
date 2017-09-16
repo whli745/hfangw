@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="pt.wzgl.nrgl.pojo.InfoTcategory" table="INFO_TCATEGORY" lazy="false">
+		<id name="columnId" type="java.lang.String">
+			<column name="COLUMN_ID" />
+			<generator class="uuid" />
+		</id>
+		<property name="parentId" type="java.lang.String" column="PARENT_ID" />
+		<property name="rank" type="java.lang.Integer" column="RANK" />
+		<property name="columnName" type="java.lang.String" column="COLUMN_NAME" />
+		<property name="columnDescribe" type="java.lang.String" column="COLUMN_DESCRIBE" />
+		<property name="sort" type="java.lang.Integer" column="SORT" />
+		<property name="createBy" type="java.lang.String" column="CREATE_BY" />
+		<property name="createDate" type="java.util.Date" column="CREATE_DATE" />
+		<property name="delFlag" type="java.lang.String" column="DEL_FLAG" />
+		<property name="usingFlag" type="java.lang.String" column="USING_FLAG" />
+		<property name="loginFlag" type="java.lang.String" column="LOGIN_FLAG" />
+		<property name="columnPath" type="java.lang.String" column="COLUMN_PATH" />
+		<property name="columnUrl" type="java.lang.String" column="COLUMN_URL" />
+		<property name="isMapService" type="java.lang.String" column="IS_MAP_SERVICE" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+/***********************************
+ * Layout
+ ***********************************/
+.wChar {
+    position: absolute;
+    z-index: 50;
+}
+/***********************************
+ * Theme - classic
+ ***********************************/
+.wChar-theme-classic.wChar {
+    height: 18px;
+	font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 2px;
+    padding: 0 5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    color: white;
+    background-color: #666666;
+}
+.wChar-theme-classic.wChar-min {
+    background-color: #F2686A;
+}

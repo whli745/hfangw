@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="pt.wzgl.nrgl.pojo.InfoTcontent" table="INFO_TCONTENT" lazy="false">
+		<id name="contentId" type="java.lang.String">
+			<column name="CONTENT_ID" />
+			<generator class="uuid" />
+		</id>
+
+		<property name="columnId" column="COLUMN_ID" type="java.lang.String"
+			not-null="false" length="32" />
+		<property name="areaId" column="AREA_ID" type="java.lang.String"
+			not-null="false" length="32" />
+		<property name="contentMainTitle" column="CONTENT_MAIN_TITLE" type="java.lang.String"
+			not-null="false" />
+		<property name="contentSubTitle" column="CONTENT_SUB_TITLE" type="java.lang.String"
+			not-null="false" />
+		<property name="issueOrgan" column="ISSUE_ORGAN" type="java.lang.String"
+			not-null="false" length="500" />
+		<property name="issueUsername" column="ISSUE_USERNAME" type="java.lang.String"
+			not-null="false" length="500" />
+		<property name="contentAbstract" column="CONTENT_ABSTRACT" type="java.lang.String"
+			not-null="false" />
+		<property name="content" column="CONTENT" type="java.lang.String"
+			not-null="false" />
+		<property name="issurDate" column="ISSUR_DATE" type="java.util.Date"
+			not-null="false" length="23" />
+		<property name="loseDate" column="LOSE_DATE" type="java.util.Date"
+			not-null="false" length="23" />
+		<property name="usingFlag" column="USING_FLAG" type="java.lang.String"
+			not-null="false" length="2" />
+		<property name="needCheck" column="NEED_CHECK" type="java.lang.String"
+			not-null="false" length="2" />
+		<property name="checkFlag" column="CHECK_FLAG" type="java.lang.String"
+			not-null="false" length="2" />
+		<property name="delFlag" column="DEL_FLAG" type="java.lang.String"
+			not-null="false" length="2" />
+		<property name="createBy" column="CREATE_BY" type="java.lang.String"
+			not-null="false" length="32" />
+		<property name="createDate" column="CREATE_DATE" type="java.util.Date"
+			not-null="false" length="23" />
+		<property name="checkBy" column="CHECK_BY" type="java.lang.String"
+			not-null="false" length="32" />
+		<property name="checkDate" column="CHECK_DATE" type="java.util.Date"
+			not-null="false" length="23" />
+		<property name="checkOpinion" column="CHECK_OPINION" type="java.lang.String"
+			not-null="false"/>
+		<property name="sort" column="SORT" type="java.lang.Integer"
+			not-null="false" />
+		<property name="attaId" column="ATTA_ID" type="java.lang.String"
+			not-null="false" />
+		<property name="isTop" column="IS_TOP" type="java.lang.String"
+			not-null="false" length="23" />
+		<property name="recommend" column="RECOMMEND" type="java.lang.String"
+			not-null="false" length="2" />
+		<property name="visitorVolume" column="VISITOR_VOLUME" type="java.lang.Integer"
+			not-null="false" />
+		<property name="isPicVideo" column="IS_PIC_VIDEO" type="java.lang.String"
+			not-null="false" />
+		<property name="backGround" column="BACK_GROUND" type="java.lang.String"
+			not-null="false" />
+		<property name="linkUrl" column="LINK_URL" type="java.lang.String"
+			not-null="false" />
+		<property name="jumpUrlFlag" column="JUMP_URL_FLAG" type="java.lang.String"
+			not-null="false" />
+		<property name="jumpUrl" column="JUMP_URL" type="java.lang.String"
+			not-null="false" />
+			
+		<property name="themeId" column="THEME_ID" type="java.lang.String"/>
+		<property name="departmenName" column="DEPARTMENT_NAME" type="java.lang.String"/>
+		<property name="zipCode" column="ZIP_CODE" type="java.lang.String"/>
+		<property name="workDate" column="WORK_DATE" type="java.lang.String"/>
+		<property name="contactPhone" column="CONTACT_PHONE" type="java.lang.String"/>
+		<property name="contactPerson" column="CONTACT_PERSON" type="java.lang.String"/>
+		<property name="complaintsPhone" column="COMPLAINTS_PHONE" type="java.lang.String"/>
+		<property name="belongArea" column="BELONG_AREA" type="java.lang.String"/>
+		<property name="address" column="ADDRESS" type="java.lang.String"/>
+		<property name="introduction" column="INTRODUCTION" type="java.lang.String"/>
+		<property name="lng" column="LNG" type="java.lang.String"/>
+		<property name="lat" column="LAT" type="java.lang.String"/>
+		<property name="departmentSite" column="DEPARTMENT_SITE" type="java.lang.String"/>
+		<property name="isMapSearch" column="IS_MAP_SEARCH" type="java.lang.String"/>
+		<property name="bmServiceId" column="BM_SERVICE_ID" type="java.lang.String"/>
+		
+		<many-to-one name="sysUser" class="pt.xtgl.jcgl.pojo.SysUser"
+			column="CREATE_BY" insert="false" update="false" />
+		<many-to-one name="infoTcategory" class="pt.wzgl.nrgl.pojo.InfoTcategory"
+			column="COLUMN_ID" insert="false" update="false" />
+		<many-to-one name="fileAtta" class="pt.wzgl.nrgl.pojo.FileAtta"
+			column="ATTA_ID" insert="false" update="false" not-found="ignore"/>
+		<many-to-one name="sysArea" class="pt.xtgl.jcgl.pojo.SysArea"
+			column="AREA_ID" insert="false" update="false" />
+			
+		<bag name="packetList" order-by="create_time desc" lazy="true" inverse="true" cascade="none" where="is_del=0">
+			<key column="newId" />
+			<one-to-many class="web.pojo.RedPacket"/>
+		</bag>
+	</class>
+</hibernate-mapping>

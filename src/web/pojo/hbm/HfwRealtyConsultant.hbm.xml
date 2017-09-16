@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="web.pojo.HfwRealtyConsultant" table="T_HFW_REALTY_CONSULTANT" lazy="false">
+		<id name="oid" type="java.lang.String">
+			<column name="OID" />
+			<generator class="uuid" />
+		</id>
+		<property name="cons_name" type="java.lang.String" column="CONS_NAME" />
+		<property name="motto" type="java.lang.String" column="MOTTO" />
+		<property name="pic" type="java.lang.String" column="PIC" />
+		<property name="sort" type="java.lang.Integer" column="SORT" />
+	</class>
+</hibernate-mapping>

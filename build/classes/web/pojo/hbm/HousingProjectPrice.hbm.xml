@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="web.pojo.HousingProjectPrice" table="T_HOUSING_PROJECT_PRICE" lazy="true">
+		<id name="oid" type="java.lang.String">
+			<column name="OID" />
+			<generator class="uuid" />
+		</id>
+		<property name="housing_proj_id" type="java.lang.String" column="HOUSING_PROJ_ID" />
+		<property name="val_1" type="java.lang.String" column="VAL_1" />
+		<property name="val_2" type="java.lang.String" column="VAL_2" />
+		<property name="val_3" type="java.lang.String" column="VAL_3" />
+		<property name="val_4" type="java.lang.String" column="VAL_4" />
+		<property name="val_5" type="java.lang.Integer" column="VAL_5" />
+		<many-to-one name="housingProject" class="web.pojo.HousingProject" column="HOUSING_PROJ_ID" cascade="none"
+            outer-join="auto" unique="true" 
+            update="false"
+            insert="false"/> 
+	</class>
+</hibernate-mapping>

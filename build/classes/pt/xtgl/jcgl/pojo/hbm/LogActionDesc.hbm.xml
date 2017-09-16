@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="pt.xtgl.jcgl.pojo.LogActionDesc" table="T_SYS_LOG_ACTION_DESC" lazy="false">
+		<id name="oid" type="java.lang.String">
+			<column name="oid" />
+			<generator class="uuid" />
+		</id>
+		<property name="actionUrl" type="java.lang.String" column="action_Url" />
+		<property name="actionDesc" type="java.lang.String" column="action_Desc" />
+		<property name="actionKey" type="java.lang.String" column="action_Key" />
+		<property name="useFlag" type="java.lang.String" column="USE_FLAG" />
+	</class>
+</hibernate-mapping>

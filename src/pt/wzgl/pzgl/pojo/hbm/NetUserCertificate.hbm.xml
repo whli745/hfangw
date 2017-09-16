@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="pt.wzgl.pzgl.pojo.NetUserCertificate" table="T_NET_USER_CERTIFICATE">
+		<id name="id" column="ID" type="java.lang.String" length="32">
+			<generator class="uuid.hex"/>
+		</id>
+		<property name="certificateID" column="CERTIFICATE_ID" type="java.lang.String"/>
+		<property name="certificateNo" column="CERTIFICATE_NO" type="java.lang.String"/>
+		<property name="certificateBeginDate" column="CARTIFICATE_BEGIN_DATE" type="java.lang.String"/>
+		<property name="certificateEndDate" column="CARTIFICATE_END_DATE" type="java.lang.String"/>
+		<property name="certificateImageAddr" column="CERTIFICATE_IMAGE_ADDR" type="java.lang.String"/>
+		<property name="certificationStatus" column="CERTIFICATION_STATUS" type="java.lang.String"/>
+		<property name="userId" column="USER_ID" type="java.lang.String"/>
+		<property name="certificationType" column="CERTIFICATION_TYPE" type="java.lang.String"/>
+		<property name="auditContent" column="AUDIT_CONTENT" type="java.lang.String"/>
+	</class>
+</hibernate-mapping>

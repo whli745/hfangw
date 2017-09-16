@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+	<!--lucence 工具类-->	
+	<bean id="luceneUtil" class="lucene.LuceneUtil" autowire="byName"/>
+	
+	<bean id="autoLoadListener" class="util.listener.AutoLoadListener"
+		factory-method="setSysModuleService" depends-on="sysModuleService">
+		<constructor-arg ref="sysModuleService" />
+	</bean>
+	<bean id="userModuleRoleFilter" class="util.filter.UserModuleRoleFilter"
+		factory-method="setSysModuleService" depends-on="sysModuleService">
+		<constructor-arg ref="sysModuleService" />
+	</bean>
+	<bean id="logService" class="pt.xtgl.jcgl.service.impl.LogServiceImpl">
+		<constructor-arg index="0" ref="logDao" />
+		<constructor-arg index="1" ref="sysRoleService" />
+	</bean>
+	<bean id="logActionDescService" class="pt.xtgl.jcgl.service.impl.LogActionDescServiceImpl">
+		<constructor-arg index="0" ref="logActionDescDao" />
+	</bean>
+	<bean id="sysUserRoleService" class="pt.xtgl.jcgl.service.impl.SysUserRoleServiceImpl">
+		<constructor-arg index="0" ref="sysUserRoleDao" />
+	</bean>
+	<bean id="sysDictService" class="pt.xtgl.jcgl.service.impl.SysDictServiceImpl">
+		<constructor-arg index="0" ref="sysDictDao" />
+	</bean>
+	<bean id="sysRoleService" class="pt.xtgl.jcgl.service.impl.SysRoleServiceImpl">
+		<constructor-arg index="0" ref="sysRoleDao" />
+		<constructor-arg index="1" ref="sysRoleModuleDao" />
+		<constructor-arg index="2" ref="sysModuleDao" />
+	</bean>
+	<bean id="sysModuleService" class="pt.xtgl.jcgl.service.impl.SysModuleServiceImpl">
+		<constructor-arg index="0" ref="sysModuleDao" />
+	</bean>
+	<bean id="sysOrganService" class="pt.xtgl.jcgl.service.impl.SysOrganServiceImpl">
+		<constructor-arg index="0" ref="sysOrganDao" />
+	</bean>
+	<bean id="sysAreaService" class="pt.xtgl.jcgl.service.impl.SysAreaServiceImpl">
+		<constructor-arg index="0" ref="sysAreaDao" />
+	</bean>
+	<bean id="sysUserService" class="pt.xtgl.jcgl.service.impl.SysUserServiceImpl">
+		<constructor-arg index="0" ref="sysUserDao" />
+		<constructor-arg index="1" ref="sysUserRoleDao" />
+	</bean>
+	
+	<bean id="sysNoticeService" class="pt.xtgl.jcgl.service.impl.SysNoticeServiceImpl">
+		<property name="sysNoticeDao" ref="sysNoticeDao"></property>
+	</bean>
+	<bean id="sysLocalService" class="pt.xtgl.jcgl.service.impl.SysLocalServiceImpl" autowire="byName"></bean>
+	<bean id="sysHolidayService" class="pt.xtgl.jcgl.service.impl.SysHolidayServiceImpl" autowire="byName" />
+	<bean id="sysWorkbenchService" class="pt.xtgl.jcgl.service.impl.SysWorkbenchServiceImpl" autowire="byName" />
+	<bean id="infoTcategoryService" class="pt.wzgl.nrgl.service.impl.InfoTcategoryServiceImpl" autowire="byName" />
+	<bean id="infoTcontentService" class="pt.wzgl.nrgl.service.impl.InfoTcontentServiceImpl" autowire="byName" />
+	<bean id="fileAttaService" class="pt.wzgl.nrgl.service.impl.FileAttaServiceImpl" autowire="byName" />
+	<bean id="netUserService" class="pt.wzgl.pzgl.service.impl.NetUserServiceImpl" autowire="byName" />
+	
+	<bean id="ggfwTypeService" class="pt.wzgl.pzgl.service.impl.GgfwTypeServiceImpl" autowire="byName" />
+	<bean id="zjblTypeService" class="pt.wzgl.pzgl.service.impl.ZjblTypeServiceImpl" autowire="byName" />
+	<bean id="sysAppParamService" class="pt.xtgl.jcgl.service.impl.SysAppParamServiceImpl" autowire="byName"></bean>
+	<bean id="netUserModuleService" class="pt.wzgl.pzgl.service.impl.NetUserModuleServiceImpl" autowire="byName" />
+	
+	<bean id="netUserCertificateService" class="pt.wzgl.pzgl.service.impl.NetUserCertificateServiceImpl" autowire="byName" />
+	
+	<bean id="buidingManageService" class="web.service.impl.BuidingManageServiceImpl" autowire="byName" />
+	<bean id="secondHandHouseService" class="web.service.impl.SecondHandHouseServiceImpl" autowire="byName" />
+	<bean id="redpacketManageService" class="web.service.impl.RedpacketManageServiceImpl" autowire="byName" />
+	
+</beans>

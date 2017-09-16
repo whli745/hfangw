@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="pt.xtgl.jcgl.pojo.SysWorkbench" table="T_SYS_WORKBENCH">
+		<id name="workbenchId" type="java.lang.String">
+			<column name="workbench_id" />
+			<generator class="uuid" />
+		</id>
+		<property name="workbenchName" type="java.lang.String">
+			<column name="workbench_name" />
+		</property>
+		<property name="workbenchUrl" type="java.lang.String">
+			<column name="workbench_url" />
+		</property>
+		<property name="workbenchSystem" type="java.lang.String">
+			<column name="workbench_system" />
+		</property>
+		<property name="systemName" type="java.lang.String">
+			<column name="system_name" />
+		</property>
+		<property name="workbenchUseFlag" type="java.lang.String">
+			<column name="workbench_useflag" />
+		</property>
+		<property name="workbenchDelFlag" type="java.lang.String">
+			<column name="workbench_delflag" />
+		</property>
+		<property name="workbenchDefault" type="java.lang.String">
+			<column name="workbench_default" />
+		</property>
+		<property name="workbenchServiceType" type="java.lang.String">
+			<column name="workbench_service_type" />
+		</property>
+		<property name="workbenchTypesetting" type="java.lang.String">
+			<column name="workbench_typesetting" />
+		</property>
+		<property name="workbenchModule" type="java.lang.String">
+			<column name="workbench_module" />
+		</property>
+		<property name="areaId" type="java.lang.String">
+			<column name="area_id" />
+		</property>
+		<property name="orderBy" type="java.lang.Integer">
+			<column name="order_by" />
+		</property>
+        <many-to-one name="serviceType" class="pt.xtgl.jcgl.pojo.SysDict" column="workbench_service_type" insert="false" update="false"/>
+        <many-to-one name="sysArea" class="pt.xtgl.jcgl.pojo.SysArea" column="area_id" insert="false" update="false"/>
+        <many-to-one name="sysModule" class="pt.xtgl.jcgl.pojo.SysModule" column="workbench_module" insert="false" update="false"/>
+	</class>
+</hibernate-mapping>

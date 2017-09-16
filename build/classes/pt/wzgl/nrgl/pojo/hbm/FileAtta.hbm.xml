@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<class name="pt.wzgl.nrgl.pojo.FileAtta" table="FILE_ATTA">
+		<id name="attaId" type="java.lang.String" column="ATTA_ID">
+			<generator class="uuid" />
+		</id>
+
+		<property name="attaName" column="ATTA_NAME" type="java.lang.String"
+			not-null="false" length="100" />
+		<property name="attaPath" column="ATTA_PATH" type="java.lang.String"
+			not-null="false" length="500" />
+		<property name="attaItemPath" column="ATTA_ITEM_PATH" type="java.lang.String"
+			not-null="false" length="500" />
+		<property name="attaType" column="ATTA_TYPE" type="java.lang.String"
+			not-null="false" length="20" />
+		<property name="attaSize" column="ATTA_SIZE" type="java.lang.Integer"
+			not-null="false" length="10" />
+		<property name="uploadTime" column="UPLOAD_TIME" type="java.util.Date"
+			not-null="false" length="23" />
+		<property name="delFlag" column="DEL_FLAG" type="java.lang.String"
+			not-null="false" length="2" />
+		<property name="attaDesc" column="ATTA_DESC" type="java.lang.String"
+			not-null="false" length="1000" />
+	</class>
+</hibernate-mapping>

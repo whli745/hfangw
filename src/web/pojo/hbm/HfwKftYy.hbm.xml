@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="web.pojo.HfwKftYy" table="T_HFW_KFT_YY" lazy="false">
+		<id name="oid" type="java.lang.String">
+			<column name="OID" />
+			<generator class="uuid" />
+		</id>
+		<property name="lxxm" type="java.lang.String" column="LXXM" />
+		<property name="phone" type="java.lang.String" column="PHONE" />
+		<property name="kft_id" type="java.lang.String" column="KFT_ID" />
+		<property name="yysj" type="java.util.Date" column="YYSJ" />
+		<property name="kf_date" type="java.lang.String" column="KF_DATE" />
+		<property name="budget" type="java.lang.String" column="BUDGET" />
+		<property name="proj_name" type="java.lang.String" column="PROJ_NAME" />
+		<property name="address" type="java.lang.String" column="ADDRESS" />
+		<property name="pickup_flag" type="java.lang.String" column="PICKUP_FLAG" />
+		<property name="area_id" type="java.lang.String" column="AREA_ID" />
+		<property name="handle_flag" type="java.lang.String" column="HANDLE_FLAG" />
+		<many-to-one name="hfwKft" class="web.pojo.HfwKft" column="kft_id" insert="false" update="false"/>
+		<many-to-one name="sysArea" class="pt.xtgl.jcgl.pojo.SysArea" column="AREA_ID" insert="false" update="false"/>
+	</class>
+</hibernate-mapping>

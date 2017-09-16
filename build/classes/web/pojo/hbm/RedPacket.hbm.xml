@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="web.pojo.RedPacket" table="T_HFW_REDPACKET" lazy="false">
+		<id name="oid" type="java.lang.String">
+		<column name="OID" />
+		<generator class="uuid" />
+	</id>
+		<property name="packetName" type="java.lang.String" column="PACKET_NAME" />
+		<property name="packetMoney" type="java.lang.String" column="PACKET_MONEY" />
+		<property name="startTime" type="java.util.Date" column="START_TIME" />
+		<property name="endTime" type="java.util.Date" column="END_TIME" />
+		<property name="createTime" type="java.util.Date" column="create_time" />
+		<property name="isDel" type="java.lang.Integer" column="is_del" />
+		<many-to-one name="housePro" fetch="select" unique="true" class="web.pojo.HousingProject">
+			<column name="houseId"/>
+		</many-to-one>
+		<many-to-one name="news" fetch="select" unique="true" class="pt.wzgl.nrgl.pojo.InfoTcontent">
+			<column name="newId"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

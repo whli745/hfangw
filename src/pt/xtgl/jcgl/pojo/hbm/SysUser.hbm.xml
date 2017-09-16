@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="pt.xtgl.jcgl.pojo.SysUser" table="T_SYS_USER" lazy="false">
+		<id name="userId" type="java.lang.String">
+			<column name="user_id" />
+			<generator class="uuid" />
+		</id>
+		<property name="userCode" type="java.lang.String" column="user_code"/>
+        <property name="userName" type="java.lang.String" column="user_name"/>
+        <property name="userPassword" type="java.lang.String" column="user_password"/>     
+        <property name="userSex" type="java.lang.String" column="user_sex" />
+        <property name="userBirthday" type="date" column="user_birthday"/> 
+        <property name="userPost" type="java.lang.String" column="user_post"/>
+        <property name="userPhone" type="java.lang.String" column="user_phone" />
+        <property name="userTel" type="java.lang.String" column="user_tel" />
+        <property name="userEmail" type="java.lang.String" column="user_email" />
+        <property name="userSort" type="java.lang.String" column="user_sort" />
+        <property name="areaId" type="java.lang.String" column="area_id" /> 
+        <property name="organId" type="java.lang.String" column="organ_id" />
+        <property name="delFlag" type="java.lang.String" column="del_flag" />
+        <property name="userStatus" type="java.lang.String" column="user_status" /> 
+        <property name="serialId" type="java.lang.Long" column="serial_id" /> 
+        <many-to-one name="sysArea" class="pt.xtgl.jcgl.pojo.SysArea" column="area_id" insert="false" update="false"/>
+        <many-to-one name="sysOrgan" class="pt.xtgl.jcgl.pojo.SysOrgan" column="organ_id" insert="false" update="false"/>
+        <many-to-one name="sysPost" class="pt.xtgl.jcgl.pojo.SysDict" column="user_post" insert="false" update="false"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="pt.wzgl.pzgl.pojo.NetUser" table="T_NET_USER">
+		<id name="id" type="java.lang.String">
+			<column name="ID" />
+			<generator class="uuid" />
+		</id>
+		<property name="userLogin" type="java.lang.String" column="USER_LOGIN" not-null="false" length="50" />
+		<property name="userPass" type="java.lang.String" column="USER_PASS" not-null="false" length="50" />
+		<property name="userName" type="java.lang.String" column="USER_NAME" not-null="false" length="200" />
+		<property name="userType" type="java.lang.String" column="USER_TYPE" not-null="false" length="20" />
+		<property name="userCardno" type="java.lang.String" column="USER_CARDNO" not-null="false" length="50" />
+		<property name="userCurrentArea" type="java.lang.String" column="USER_CURRENT_AREA" not-null="false" length="50" />
+		<property name="userCensus" type="java.lang.String" column="USER_CENSUS" not-null="false" length="20" />
+		<property name="userAddress" type="java.lang.String" column="USER_ADDRESS" not-null="false" length="500" />
+		<property name="userTel" type="java.lang.String" column="USER_TEL" not-null="false" length="50" />
+		<property name="userPhone" type="java.lang.String" column="USER_PHONE" not-null="false" length="50" />
+		<property name="userEmail" type="java.lang.String" column="USER_EMAIL" not-null="false" length="100" />
+		<property name="companyOrganCode" type="java.lang.String" column="COMPANY_ORGAN_CODE" not-null="false" length="50" />
+		<property name="companyBusinessLicense" type="java.lang.String" column="COMPANY_BUSINESS_LICENSE" not-null="false" length="50" />
+		<property name="companyType" type="java.lang.String" column="COMPANY_TYPE" not-null="false" length="32" />
+		<property name="companyRegCapital" type="java.lang.String" column="COMPANY_REG_CAPITAL" not-null="false" length="50" />
+		<property name="companyLegal" type="java.lang.String" column="COMPANY_LEGAL" not-null="false" length="50" />
+		<property name="societyName" type="java.lang.String" column="SOCIETY_NAME" not-null="false" length="200" />
+		<property name="societyChargeDept" type="java.lang.String" column="SOCIETY_CHARGE_DEPT" not-null="false" length="200" />
+		<property name="societyRegisterNumber" type="java.lang.String" column="SOCIETY_REGISTER_NUMBER" not-null="false" length="100" />
+		<property name="societyNature" type="java.lang.String" column="SOCIETY_NATURE" not-null="false" length="32" />
+		<property name="societyLawPerson" type="java.lang.String" column="SOCIETY_LAW_PERSON" not-null="false" length="50" />
+		<property name="societyMsz" type="java.lang.String" column="SOCIETY_MSZ" not-null="false" length="50" />
+		<property name="societyContactPerson" type="java.lang.String" column="SOCIETY_CONTACT_PERSON" not-null="false" length="50" />
+		<property name="societyAddress" type="java.lang.String" column="SOCIETY_ADDRESS" not-null="false" length="200" />
+		<property name="userCreatedate" type="java.util.Date" column="USER_CREATEDATE" not-null="false" length="23" />
+		<property name="userImageUrl" type="java.lang.String" column="USER_IMAGE_URL" not-null="false" length="200" />
+		<property name="userActivating" type="java.lang.String" column="USER_ACTIVATING" not-null="false" length="20" />
+		<property name="userAttest" type="java.lang.String" column="USER_ATTEST" not-null="false" length="20" />
+		<property name="userDelStatus" type="java.lang.String" column="USER_DEL_STATUS" not-null="false" length="32" />
+		<property name="verifyEmailCode" type="java.lang.String" column="VERIFY_EMAIL_CODE" not-null="false" length="32" />
+		<property name="emailUnVerified" type="java.lang.String" column="EMAIL_UNVERIFIED" not-null="false" length="100" />
+		
+		<property name="userSecrQuesIdA" type="java.lang.String" column="USER_SECR_QUES_ID_1"  not-null="false" length="32" />
+		<property name="userSecrQuesIdB" type="java.lang.String" column="USER_SECR_QUES_ID_2"  not-null="false" length="32" />
+		<property name="userSecrQuesAnswA" type="java.lang.String" column="USER_SECR_QUES_ANSW_1"  not-null="false" length="200" />
+		<property name="userSecrQuesAnswB" type="java.lang.String" column="USER_SECR_QUES_ANSW_2"  not-null="false" length="200" />
+		<property name="userSecrModiDate" type="java.util.Date" column="USER_SECR_MODI_DATE"  not-null="false" length="23" />
+		<property name="userPassModiDate" type="java.util.Date" column="USER_PASS_MODI_DATE"  not-null="false" length="23" />
+		<property name="userHeadImage" type="java.lang.String" column="USER_HEAD_IMAGE" />
+		<property name="sex" type="java.lang.String" column="SEX" not-null="false" length="1" />
+		<property name="mz" type="java.lang.String" column="MZ" not-null="false" length="20" />
+		<property name="birthday" type="java.util.Date" column="BIRTH_DAY" length="23" />
+		<property name="certType" type="java.lang.String" column="CERTT_YPE" not-null="false" length="10" />
+		<property name="zipCode" type="java.lang.String" column="ZIP_CODE" not-null="false" length="50" />
+		<property name="qq" type="java.lang.String" column="QQ" not-null="false" length="50" />
+		<property name="vaidCode" type="java.lang.String" column="VAID_CODE"  not-null="false" length="32" />
+		<property name="companyName" type="java.lang.String" column="COMPANY_NAME" not-null="false" length="500" />
+		<property name="webSite" type="java.lang.String" column="WEBSITE" not-null="false" length="500" />
+		<property name="weiBoSite" type="java.lang.String" column="WEIBO_SITE" not-null="false" length="500" />
+		<property name="taxNo" type="java.lang.String" column="TAX_NO" not-null="false" length="500" />
+		<property name="companyInfoSite" type="java.lang.String" column="COMPANY_INFO_SITE" not-null="false" length="500" />
+		<property name="companyIntroduction" type="java.lang.String" column="COMPANY_INTRODUCTION" not-null="false" length="5000" />
+		<property name="depositBank" type="java.lang.String" column="DEPOSIT_BANK" not-null="false" length="500" />
+		<property name="bankAccount" type="java.lang.String" column="BANK_ACCOUNT" not-null="false" length="500" />
+		<property name="contacterName" type="java.lang.String" column="CONTACTER_NAME" not-null="false" length="500" />
+		<property name="contacterTel" type="java.lang.String" column="CONTACTER_TEL" not-null="false" length="50" />
+		<property name="contacterPhone" type="java.lang.String" column="CONTACTER_PHONE" not-null="false" length="50" />
+		<property name="contacterEmail" type="java.lang.String" column="CONTACTER_EMAIL" not-null="false" length="500" />
+
+		<property name="faxNum" type="java.lang.String" column="FAX_NUM"/>
+		<property name="setUpDate" type="java.lang.String" column="SETUP_DATE"/>
+		<property name="companyRegisteredAddR" type="java.lang.String" column="COMPNAY_REGISTERED_ADDR"/>
+		<property name="bussinessScope" type="java.lang.String" column="BUSSINESS_SCOPE"/>
+		<property name="registeredCapital" type="java.lang.String" column="REGISTERED_CAPITAL"/>
+		<property name="proAndBussAddr" type="java.lang.String" column="PRODUCE_BUSSINESS_ADDR"/>
+		<!--property name="userCheckStatus" type="java.lang.String" column="USER_CHECK_STATUS"/-->
+		<property name="bangdingPhoneStatus" type="java.lang.String" column="BANGDING_PHONE_STATUS" length="1"/>
+		<property name="jpushRegId" type="java.lang.String" column="JPUSH_REG_ID" length="200"/>
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="webIndex" extends="webVisitor"> 
+		<action name="initWebIndex" class="webIndexAction" method="initWebIndex">
+			<result name="success">/web/webIndex.jsp</result>
+		</action>
+		<action name="showBuidingDetail" class="webIndexAction" method="showBuidingDetail">
+			<result name="success">/web/showBuidingDetail.jsp</result>
+		</action>
+		<action name="newsFrames" class="webIndexAction" method="newsFrames">
+			<result name="success">/web/newsFrames.jsp</result>
+		</action>
+		<action name="newsAboutUsFrames" class="webIndexAction" method="newsAboutUsFrames">
+			<result name="success">/web/newsAboutUsFrames.jsp</result>
+		</action>
+		<action name="newsList" class="webIndexAction" method="newsList">
+			<result name="success">/web/newsList.jsp</result>
+		</action>
+		<action name="newsDetail" class="webIndexAction" method="newsDetail">
+			<result name="success">/web/newsDetail.jsp</result>
+		</action>
+		<action name="newsAboutUsDetail" class="webIndexAction" method="newsAboutUsDetail">
+			<result name="success">/web/newsAboutUsDetail.jsp</result>
+		</action>
+		<action name="buidingSearch" class="webIndexAction" method="buidingSearch">
+			<result name="success">/web/buidingSearch.jsp</result>
+		</action>
+		<action name="bookingRoomAjax" class="webIndexAction" method="bookingRoomAjax">
+		</action>
+		<action name="houseSearch" class="webIndexAction" method="houseSearch">
+			<result name="success">/web/houseSearch.jsp</result>
+		</action>
+		<action name="showHouseDetail" class="webIndexAction" method="showHouseDetail">
+			<result name="success">/web/showHouseDetail.jsp</result>
+		</action>
+		<action name="hfwContactsEdit" class="redpacketManageAction" method="hfwContactsEdit">
+			<!--<result name="success">queryHFWContantsList.action</result>-->
+		</action>
+	</package>
+</struts>

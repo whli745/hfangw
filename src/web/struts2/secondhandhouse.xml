@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="shh" extends="default"> 
+		<default-interceptor-ref name="defaultStack" />
+		<action name="querySecondHandHouseList" class="secondHandHouseManageAction" method="querySecondHandHouseList">
+			<result name="success">/secondhandhouse/querySecondHandHouseList.jsp</result>
+		</action>
+		<action name="initSecondHandHouseEdit" class="secondHandHouseManageAction" method="initSecondHandHouseEdit">
+			<result name="success">/secondhandhouse/initSecondHandHouseEdit.jsp</result>
+		</action>
+		<action name="secondHandHouseEdit" class="secondHandHouseManageAction" method="secondHandHouseEdit">
+			<result name="success" type="redirect">querySecondHandHouseList.action</result>
+		</action>
+		<action name="delSecondHandHouseAjax" class="secondHandHouseManageAction" method="delSecondHandHouseAjax">
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="pt.xtgl.jcgl.pojo.Loginfo" table="T_SYS_LOG_INFO" lazy="false">
+		<id name="oid" type="java.lang.String">
+			<column name="oid" />
+			<generator class="uuid" />
+		</id>
+		<property name="type" type="java.lang.Integer" column="type" />
+		<property name="userType" type="java.lang.Integer" column="USER_TYPE" />
+		<property name="actText" type="java.lang.String" column="actText" />
+		<property name="userName" type="java.lang.String" column="username" />
+		<property name="userOid" type="java.lang.String" column="userOid" />
+		<property name="organId" type="java.lang.String" column="organid" />
+		<property name="actTime" type="java.util.Date" column="actTime" />
+		<property name="ip" type="java.lang.String" column="ip" />
+		<property name="roleIds" type="java.lang.String" column="roleid" />
+		<property name="areaId" type="java.lang.String" column="area_id" />
+		<property name="actionUrl" type="java.lang.String" column="ACTION_URL" />
+        <many-to-one name="sysArea" class="pt.xtgl.jcgl.pojo.SysArea" column="area_id" insert="false" update="false"/>
+	</class>
+</hibernate-mapping>

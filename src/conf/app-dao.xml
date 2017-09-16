@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+	<bean id="logDao" class="pt.xtgl.jcgl.dao.impl.LogDaoImpl" />
+	<bean id="logActionDescDao" class="pt.xtgl.jcgl.dao.impl.LogActionDescDaoImpl" />
+	<bean id="sysDictDao" class="pt.xtgl.jcgl.dao.impl.SysDictDaoImpl" />
+	<bean id="sysRoleModuleDao" class="pt.xtgl.jcgl.dao.impl.SysRoleModuleDaoImpl" />
+	<bean id="sysRoleDao" class="pt.xtgl.jcgl.dao.impl.SysRoleDaoImpl" />
+	<bean id="sysModuleDao" class="pt.xtgl.jcgl.dao.impl.SysModuleDaoImpl" />
+	<bean id="sysOrganDao" class="pt.xtgl.jcgl.dao.impl.SysOrganDaoImpl" />
+	<bean id="sysAreaDao" class="pt.xtgl.jcgl.dao.impl.SysAreaDaoImpl" />
+	<bean id="sysUserDao" class="pt.xtgl.jcgl.dao.impl.SysUserDaoImpl" />
+	<bean id="sysUserRoleDao" class="pt.xtgl.jcgl.dao.impl.SysUserRoleDaoImpl" />
+	<bean id="sysNoticeDao" class="pt.xtgl.jcgl.dao.impl.SysNoticeDaoImpl"/>
+	<bean id="sysLocalDao" class="pt.xtgl.jcgl.dao.impl.SysLocalDaoImpl" />
+	<bean id="sysHolidayDao" class="pt.xtgl.jcgl.dao.impl.SysHolidayDaoImpl"/>
+	<bean id="sysWorkbenchDao" class="pt.xtgl.jcgl.dao.impl.SysWorkbenchDaoImpl"/>
+	<bean id="infoTcategoryDao" class="pt.wzgl.nrgl.dao.impl.InfoTcategoryDaoImpl" />
+	<bean id="fileAttaDao" class="pt.wzgl.nrgl.dao.impl.FileAttaDaoImpl" />
+	<bean id="infoTcontentDao" class="pt.wzgl.nrgl.dao.impl.InfoTcontentDaoImpl" />
+	<bean id="netUserDao" class="pt.wzgl.pzgl.dao.impl.NetUserDaoImpl" />
+	
+	<bean id="ggfwTypeDao" class="pt.wzgl.pzgl.dao.impl.GgfwTypeDaoImpl" />
+	<bean id="zjblTypeDao" class="pt.wzgl.pzgl.dao.impl.ZjblTypeDaoImpl" />
+	
+	<bean id="sysAppParamDao" class="pt.xtgl.jcgl.dao.impl.SysAppParamDaoImpl" />
+	
+	<bean id="netUserModuleDao" class="pt.wzgl.pzgl.dao.impl.NetUserModuleDaoImpl" />
+	<bean id="netUserCertificateDao" class="pt.wzgl.pzgl.dao.impl.NetUserCertificateDaoImpl" />
+	
+	<bean id="housingProjectDao" class="web.dao.impl.HousingProjectDaoImpl" />
+	<bean id="hfwKftDao" class="web.dao.impl.HfwKftDaoImpl" />
+	<bean id="hfwKftYyDao" class="web.dao.impl.HfwKftYyDaoImpl" />
+	<bean id="hfwRealtyConsultantDao" class="web.dao.impl.HfwRealtyConsultantDaoImpl" />
+	<bean id="housingProjectPriceDao" class="web.dao.impl.HousingProjectPriceDaoImpl" />
+	<bean id="secondHandHouseDao" class="web.dao.impl.SecondHandHouseDaoImpl" />
+	<bean id="redPacketDao" class="web.dao.impl.RedPacketDaoImpl" />
+	<bean id="contactsDao" class="web.dao.impl.HfwContactsDaoImpl"/>
+	
+</beans>

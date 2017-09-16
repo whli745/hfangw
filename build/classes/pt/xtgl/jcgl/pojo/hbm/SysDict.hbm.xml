@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="pt.xtgl.jcgl.pojo.SysDict"
+		table="T_SYS_DICT">
+		<id name="dictId" type="java.lang.String">
+			<column name="dict_id" />
+			<generator class="uuid" />
+		</id>
+
+		<property name="dictCode" type="java.lang.String">
+			<column name="dict_code" />
+		</property>
+
+		<property name="dictName" type="java.lang.String">
+			<column name="dict_name" />
+		</property>
+		
+		<property name="parentId" type="java.lang.String">
+			<column name="parent_id" />
+		</property>
+
+		<property name="dictMemo" type="java.lang.String">
+			<column name="dict_memo" />
+		</property>
+
+		<property name="dictPath" type="java.lang.String">
+			<column name="dict_path" />
+		</property>
+
+		<property name="statusFlag" type="java.lang.String">
+			<column name="status_flag" />
+		</property>
+
+		<property name="delFlag" type="java.lang.String">
+			<column name="del_flag" />
+		</property>
+	</class>
+</hibernate-mapping>

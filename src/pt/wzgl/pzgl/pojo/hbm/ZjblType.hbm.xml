@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="pt.wzgl.pzgl.pojo.ZjblType" table="T_ZJBL_TYPE">
+		<id name="typeId" type="java.lang.String">
+			<column name="TYPE_ID" />
+			<generator class="uuid" />
+		</id>
+		<property name="parentId" type="java.lang.String" column="PARENT_ID" length="32" />
+		<property name="typePath" type="java.lang.String" column="TYPE_PATH" length="400" />
+		<property name="typeName" type="java.lang.String" column="TYPE_NAME" length="100" />
+		<property name="typeCode" type="java.lang.String" column="TYPE_CODE" length="20" />
+		<property name="typeSort" type="java.lang.String" column="TYPE_SORT" length="20" />
+		<property name="typeMemo" type="java.lang.String" column="TYPE_MEMO" length="200" />
+		<property name="typeLogo" type="java.lang.String" column="TYPE_LOGO" length="200" />
+		<property name="typeUrl" type="java.lang.String" column="TYPE_URL" length="200" />
+		<property name="delFlag" type="java.lang.String" column="DEL_FLAG" length="2" />
+		<property name="usingFlag" type="java.lang.String" column="USING_FLAG" length="2" />
+		<property name="updateTime" type="java.util.Date" column="UPDATE_TIME" length="23" />
+		<property name="createTime" type="java.util.Date" column="CREATE_TIME" length="23" update="false"/>
+	</class>
+</hibernate-mapping>

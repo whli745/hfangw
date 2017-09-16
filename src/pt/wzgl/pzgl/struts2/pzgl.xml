@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="pzgl" extends="wzgl">
+		<default-interceptor-ref name="defaultStack" />
+		<!-- 公共服务分类 start -->
+		<action name="initGgfwTypeInfo" class="ggfwTypeAction">
+			<result name="success">/pt/wzgl/pzgl/ggfwTypeInfoEdit.jsp</result>
+		</action>
+
+		<action name="getGgfwTypeTreeAjax" class="ggfwTypeAction" method="getGgfwTypeTreeAjax"></action>
+
+		<action name="getGgfwTypeTreeStrAjax" class="ggfwTypeAction"
+			method="getGgfwTypeTreeStrAjax">
+			<interceptor-ref name="defaultStack" />
+		</action>
+
+		<action name="editGgfwTypeAjax" class="ggfwTypeAction" method="editGgfwTypeAjax"></action>
+
+		<action name="delGgfwTypeAjax" class="ggfwTypeAction" method="delGgfwTypeAjax"></action>
+
+		<action name="getJSONGgfwType" class="ggfwTypeAction" method="getJSONGgfwType"></action>
+		
+		<action name="chkGgfwTypeCodeUniqueAjax" class="ggfwTypeAction" method="chkGgfwTypeCodeUniqueAjax"></action>
+		<!-- 公共服务分类 end -->
+		
+		<!-- 证件办理分类 start -->
+		<action name="initZjblTypeInfo" class="zjblTypeAction">
+			<result name="success">/pt/wzgl/pzgl/zjblTypeInfoEdit.jsp</result>
+		</action>
+
+		<action name="getZjblTypeTreeAjax" class="zjblTypeAction" method="getZjblTypeTreeAjax"></action>
+
+		<action name="getZjblTypeTreeStrAjax" class="zjblTypeAction"
+			method="getZjblTypeTreeStrAjax">
+			<interceptor-ref name="defaultStack" />
+		</action>
+
+		<action name="editZjblTypeAjax" class="zjblTypeAction" method="editZjblTypeAjax"></action>
+
+		<action name="delZjblTypeAjax" class="zjblTypeAction" method="delZjblTypeAjax"></action>
+
+		<action name="getJSONZjblType" class="zjblTypeAction" method="getJSONZjblType"></action>
+		
+		<action name="chkZjblTypeCodeUniqueAjax" class="zjblTypeAction" method="chkZjblTypeCodeUniqueAjax"></action>
+		<!-- 证件办理分类 end -->
+		
+		<!-- 网站用户菜单管理start -->
+		<action name="initNetUserModule" class="netUserModuleAction" method="initNetUserModule">
+			<result name="success">/pt/wzgl/pzgl/netUserModuleInfoEdit.jsp</result>
+		</action>
+		<action name="editNetUserModuleAjax" class="netUserModuleAction" method="editNetUserModuleAjax">
+		</action>
+		<action name="getJSONNetUserModule" class="netUserModuleAction" method="getJSONNetUserModule">
+		</action>
+		<action name="delNetUserModuleAjax" class="netUserModuleAction" method="delNetUserModuleAjax">
+		</action>
+		<action name="getNetUserModuleTreeAjax" class="netUserModuleAction" method="getNetUserModuleTreeAjax">
+		</action>
+		<!-- 网站用户菜单管理end -->
+		
+		<!-- 网站用户管理start -->
+		<!-- 注册用户管理 -->
+		<action name="initNetUserManager" class="netUserAction" method="initNetUserManager">
+		   	<result name="success">/pt/wzgl/pzgl/netUserList.jsp</result>
+		</action>
+		<!-- 重置用户密码 -->
+		<action name="resetPassword" class="netUserAction" method="resetPassword"></action>
+		<!-- 删除用户 -->
+		<action name="deleteNetUser" class="netUserAction" method="deleteNetUser"></action>
+		<!-- 查看用户详细 -->
+		<action name="selectDetailInfo" class="netUserAction" method="selectDetailInfo">
+		   	<result name="personal">/pt/wzgl/pzgl/netUserDetail.jsp</result>
+		   	<result name="company">/pt/wzgl/pzgl/netCompanyDetail.jsp</result>
+		</action>
+		<!-- 查看用户详细和用户证件  -->
+		<action name="selectDetailInfoForCertification" class="netUserAction" method="selectDetailInfoForCertification">
+		   	<result name="personal">/pt/wzgl/pzgl/netUserDetailForCertification.jsp</result>
+		   	<result name="company">/pt/wzgl/pzgl/netCompanyDetailForCertification.jsp</result>
+		</action>
+		<!-- 执行审核用户证件 -->
+		<action name="doAuditCertifiction" class="netUserAction" method="doAuditCertifiction"></action>
+		<!-- 跳转到审核用户证件 -->
+		<action name="netCompanyDetailForAudit" class="netUserAction" method="netCompanyDetailForAudit"> 
+			<result name="success">/pt/wzgl/pzgl/netCompanyDetailForAudit.jsp</result>
+		</action>
+		<!-- 开启审核窗口 -->
+		<action name="openAuditPage" class="netUserAction" method="openAuditPage">
+		   	<result name="success">/pt/wzgl/pzgl/iframAudit.jsp</result>
+		</action>
+		<!-- 网站用户管理 end -->
+	</package>
+</struts>

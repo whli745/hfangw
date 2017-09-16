@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pt.xtgl.jcgl.pojo.SysRoleModule" table="T_SYS_ROLE_MODULE">
+        <id name="oid" type="java.lang.String">
+            <column name="oid"/>
+            <generator class="uuid.hex"/>
+        </id>
+        <property name="moduleId" type="java.lang.String">
+            <column name="module_id" length="32" />
+        </property>
+        <property name="roleId" type="java.lang.String">
+            <column name="role_id" length="32" />
+        </property>
+         <many-to-one
+            name="sysRole"
+            class="pt.xtgl.jcgl.pojo.SysRole"
+            cascade="none"
+            outer-join="auto"
+            update="false"
+            insert="false"
+            column="role_id"
+        />
+        <many-to-one
+            name="sysModule"
+            class="pt.xtgl.jcgl.pojo.SysModule"
+            cascade="none"
+            outer-join="auto"
+            update="false"
+            insert="false"
+            column="module_id"
+        />
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!--系统计划任务 -->
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref local="autoLoadWeatherInfoCronTrigger" />
+			</list>
+		</property>
+	</bean>
+	
+	<!--自动加载当前的天气信息-->
+	<bean id="autoLoadWeatherInfoCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="autoLoadWeatherInfoScheduler"/>
+		<property name="cronExpression" value="0 */1 * * * ?"/>
+	</bean>
+	
+	<bean id="autoLoadWeatherInfoScheduler" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean"
+		lazy-init="true">
+		<property name="targetObject" ref="quartzAction"/>
+		<property name="targetMethod" value="autoLoadWeatherInfo"/>
+	</bean>
+	
+</beans>

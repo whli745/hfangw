@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+     <class name="pt.xtgl.jcgl.pojo.SysArea" table="T_SYS_AREA" lazy="false">
+        <id name="areaId" type="java.lang.String">
+            <column name="area_id" />
+            <generator class="uuid.hex" />
+        </id>
+        <property name="topId" type="java.lang.String" column="top_id" />
+        <property name="areaCode" type="java.lang.String" column="area_code" />
+        <property name="areaName" type="java.lang.String" column="area_name" />
+        <property name="areaLevel" type="java.lang.String" column="Area_level" />
+        <property name="parentCode" type="java.lang.String" column="Parent_code" />
+        <property name="delFlag" type="java.lang.String" column="Del_flag"  />
+        <property name="areaSort" type="java.lang.Integer" column="area_sort" />
+        <property name="areaPath" type="java.lang.String" column="area_path" />
+    </class>
+</hibernate-mapping>

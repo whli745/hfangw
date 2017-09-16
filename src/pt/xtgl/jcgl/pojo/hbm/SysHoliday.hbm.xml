@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="pt.xtgl.jcgl.pojo.SysHoliday" table="T_SYS_HOLIDAY">
+		<id name="oid" type="java.lang.String">
+			<column name="oid"/>
+			<generator class="uuid.hex"/>
+		</id>
+		<property name="holidayDate" type="java.util.Date">
+			<column name="holiday_date" length="100" />
+		</property>
+		<property name="holidayType" type="java.lang.String">
+			<column name="holiday_type" length="1" />
+		</property>
+		<property name="holidayMemo" type="java.lang.String">
+			<column name="holiday_memo" length="1" />
+		</property>
+	</class>
+</hibernate-mapping>

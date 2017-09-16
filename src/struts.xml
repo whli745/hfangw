@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.multipart.saveDir" value="/tmp"></constant>
+	<constant name="struts.multipart.maxSize" value="1000000000"></constant>
+	<include file="struts-default.xml" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+
+	<package name="default" extends="struts-default">
+		<interceptors>
+			<interceptor name="loginfoInterceptor" class="util.interceptor.LoginfoInterceptor" />
+			<interceptor name="loginInterceptor" class="util.interceptor.LoginInterceptor" />
+			<interceptor-stack name="defaultStack">
+				<interceptor-ref name="paramsPrepareParamsStack">
+					<param name="fileUpload.maximumSize">1000000000</param>
+				</interceptor-ref>
+				<interceptor-ref name="loginfoInterceptor" />
+				<interceptor-ref name="loginInterceptor" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="defaultStack" />
+
+		<global-results>
+			<result name="login" type="redirect">
+				<param name="location">/login.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">/error.jsp</param>
+			</result>
+		</global-results>
+		<action name="treeTest" class="sysAreaAction" method="treeTest">
+			<interceptor-ref name="defaultStack" />
+		</action>
+	</package>
+	
+	<!-- 网站 游客拦截器  -->
+	<package name="web_visitor_default" extends="struts-default"> 
+		<interceptors>
+			<interceptor name="loginfoInterceptor" class="util.interceptor.LoginfoInterceptor" />
+			<interceptor-stack name="defaultStack1">
+				<interceptor-ref name="paramsPrepareParamsStack">
+					<param name="fileUpload.maximumSize">1000000000</param>
+				</interceptor-ref>
+				<interceptor-ref name="loginfoInterceptor"/>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="defaultStack1"/>
+		<global-results>
+			<result name="error" type="redirect">
+				<param name="location">/error.jsp</param>
+			</result>
+			<result name="REFUSE" type="redirect">
+				<param name="location">/refuse.jsp</param>
+			</result>
+		</global-results>
+	</package>
+	
+	<!-- 网站拦截器  -->
+	<package name="web_default" extends="struts-default"> 
+		<interceptors>
+			<interceptor name="loginfoInterceptor" class="util.interceptor.LoginfoInterceptor" />
+			<interceptor name="webLoginInterceptor" class="util.interceptor.WebLoginInterceptor" />
+			<interceptor-stack name="defaultStack2">
+				<interceptor-ref name="paramsPrepareParamsStack">
+					<param name="fileUpload.maximumSize">1000000000</param>
+				</interceptor-ref>
+				<interceptor-ref name="webLoginInterceptor"/>
+				<interceptor-ref name="loginfoInterceptor"/>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="defaultStack2"/>
+		<global-results>
+			<result name="login" type="redirectAction">
+				<param name="actionName">initWebLogin.action</param>
+				<param name="userType">0</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">/error.jsp</param>
+			</result>
+			<result name="REFUSE" type="redirect">
+				<param name="location">/refuse.jsp</param>
+			</result>
+		</global-results>
+	</package>
+	
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<!-- 网站拦截器 共3种  后台管理 前台游客 前台 -->
+	<include file="pt/pt.xml" />
+	<include file="web/web.xml" />
+	<include file="web/webVisitor.xml" />
+	<include file="util/base/struts2/common.xml" />
+</struts>

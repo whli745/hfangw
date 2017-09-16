@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="pt.xtgl.jcgl.pojo.SysNotice"
+		table="T_SYS_NOTICE">
+		<id name="noticeId" type="java.lang.String">
+			<column name="notice_id" />
+			<generator class="uuid" />
+		</id>
+		<property name="noticeTitle" type="java.lang.String">
+			<column name="notice_title" />
+		</property>
+		<property name="noticeMemo" type="java.lang.String">
+			<column name="notice_memo" />
+		</property>
+		<property name="noticeAtta" type="java.lang.String">
+			<column name="notice_atta" />
+		</property>
+		<property name="noticeDateType" type="java.lang.String">
+			<column name="notice_date_type" />
+		</property>
+		<property name="noticeEndDate" type="java.util.Date">
+			<column name="notice_end_date" />
+		</property>
+		<property name="noticeType" type="java.lang.String">
+			<column name="notice_type" />
+		</property>
+		<property name="delFlag" type="java.lang.String">
+			<column name="del_flag" />
+		</property>
+		<property name="userId" type="java.lang.String">
+			<column name="user_id" />
+		</property>
+		<property name="insertDate" type="java.util.Date">
+			<column name="insert_date" />
+		</property>
+		<property name="ywType" type="java.lang.String">
+			<column name="yw_type" />
+		</property>
+		<property name="areaId" type="java.lang.String">
+            <column name="area_id" />
+        </property>
+        <many-to-one name="sysArea" class="pt.xtgl.jcgl.pojo.SysArea" column="area_id" insert="false" update="false"/>
+        <many-to-one name="serviceType" class="pt.xtgl.jcgl.pojo.SysDict" column="yw_type" insert="false" update="false"/>
+	</class>
+</hibernate-mapping>

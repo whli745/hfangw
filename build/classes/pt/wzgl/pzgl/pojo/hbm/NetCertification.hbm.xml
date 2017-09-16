@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="pt.wzgl.pzgl.pojo.NetCertification" table="T_NET_CERTIFICATION">
+		<id name="id" column="ID" type="java.lang.String" length="32">
+			<generator class="uuid.hex"/>
+		</id>
+		<property name="certificationName" column="CERTIFICATION_NAME" type="java.lang.String"/>
+		<property name="certificationType" column="CERTIFICATION_TYPE" type="java.lang.String"/>
+		<property name="certificationImg" column="CERTIFICATION_IMG" type="java.lang.String"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="pt.xtgl.jcgl.pojo.SysOrgan" table="T_SYS_ORGAN" lazy="false">
+		<id name="organId" type="java.lang.String">
+			<column name="organ_id" />
+			<generator class="uuid" />
+		</id>
+		<property name="parentId" type="java.lang.String" column="parent_id" />
+		<property name="organCode" type="java.lang.String" column="organ_code" />
+		<property name="organName" type="java.lang.String" column="organ_name" />
+		<property name="organFullName" type="java.lang.String" column="organ_full_name" />
+		<property name="organSimpCode" type="java.lang.String" column="organ_simp_code" />
+		<property name="organSort" type="java.lang.Long" column="organ_sort" />
+		<property name="organAddr" type="java.lang.String" column="organ_addr" />
+		<property name="organTel" type="java.lang.String" column="organ_tel" />
+		<property name="areaId" type="java.lang.String" column="area_id" />
+		<property name="organFlag" type="java.lang.String" column="organ_flag" />
+		<property name="delFlag" type="java.lang.String" column="del_flag" />
+		<property name="organPath" type="java.lang.String" column="organ_path" />
+		<many-to-one name="sysArea" class="pt.xtgl.jcgl.pojo.SysArea" column="area_id" insert="false" update="false"/>
+	</class>
+</hibernate-mapping>

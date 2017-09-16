@@ -1,0 +1,55 @@
+html{_overflow-x:auto;_overflow-y:hidden;}
+*, * focus {outline: none;margin: 0;padding: 0;}
+li{list-style:none;}
+body {font-size:13px;color:#333;margin: 0;padding:28px 0 0 0;background:url(../images/leftmenu_bg.gif) #e6f4fa repeat-y left;overflow-y:auto;height:100%;}
+.topTitle{width:100%;height:28px;background:url(../images/lefttop.gif) #e6f4fa no-repeat top;
+overflow:hidden;position:fixed!important;position:absolute;top:0;left:0;z-index:214748364;
+}
+#zfcg{width:auto;height:28px; line-height:28px; text-align:left; color:#fff; font-weight:bold; padding:0 0 0 20px; margin-left:13px;background:url(../images/ico_lefttop.gif) no-repeat left center;}
+.conner{width:auto;height:24px;padding:0 0 0 60px;background:url(../images/leftmenu_topconner.gif) no-repeat left center;}
+
+.container {width: 100%;height:100%;padding:0;}
+h2.noSubmenu {
+	width:175px;padding: 0 0 0 20px;margin:0 auto;
+	background:url(../images/leftmenu.gif) no-repeat 0 0;
+	height: 33px;line-height: 29px;font-size:13px;
+	font-weight: normal;}
+h2.noSubmenu a {display: block;color: #333;text-decoration: none;padding: 0;}
+
+h2.acc_trigger {
+	width:auto;height: 27px;line-height: 27px;
+	background:url(../images/leftmenu.gif) repeat-x 0 0;
+	font-size: 13px;font-weight: normal;
+	margin:0 auto;
+}
+h2.acc_trigger a {
+	width:atuo;height:27px;padding:0 0 0 35px;
+	color: #075587;text-decoration: none;
+	display: block;
+	background:url(../images/leftmenu.gif) no-repeat 0 -33px;
+}
+h2.acc_trigger a span{display:block;width:auto;
+background:url(../images/leftmenu.gif) no-repeat right -99px;
+}
+h2.acc_trigger a:hover {color: #075587;}
+h2.active {}
+h2.active a{font-weight:bold; background:url(../images/leftmenu.gif) no-repeat 0 -66px;}
+.acc_container {
+	width:auto;overflow: hidden;
+	border-bottom:solid 1px #b9ddec;
+	margin: 0 auto;
+	padding: 6px 0 0 0;
+	font-size: 13px;
+	background:url(../images/container_topbg.gif) no-repeat top;
+}
+.acc_container .block {padding: 0 0 0 25px; background:url(../images/container_bg.gif) repeat-y;}
+.acc_container .block li {
+	padding:0;margin: 0;
+	line-height:25px;
+	font-size:13px;list-style:none;}
+.acc_container .block li img{width:24px;height:24px;vertical-align:middle;border:0;}
+.acc_container .block li a{}
+.acc_container .block li a:link{color:#333;text-decoration:none;}
+.acc_container .block li a:visited{color:#333;text-decoration:none;}
+.acc_container .block li a:hover{color:#F00;text-decoration:underline;}
+.acc_container .block li a:active{color:#333;text-decoration:none;}

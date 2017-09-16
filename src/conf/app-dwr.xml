@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+	<!-- 区划 -->
+	<bean id="areaManageDwr" class="dwr.AreaManageDwr" scope="prototype">
+		<property ref="sysAreaService" name="sysAreaService"></property>
+	</bean>
+	<!-- 综合其他 -->
+	<bean id="ptSynthetizeAppDwr" class="dwr.PtSynthetizeAppDwr" scope="prototype">
+		<property ref="sysOrganService" name="sysOrganService"></property>
+		<property ref="sysRoleService" name="sysRoleService"></property>
+		<property ref="sysUserService" name="sysUserService"></property>
+	</bean>
+	
+	<!-- cheng cheng -->
+	<!-- 机构的Dwr -->
+	<bean id="organManagerDwr" class="dwr.OrganManagerDwr" scope="prototype">
+		<property name="sysOrganService" ref="sysOrganService"/>
+	</bean>
+	<!-- cheng cheng -->
+	<!-- 地区的Dwr -->
+	<bean id="sysLocalManageDwr" class="dwr.SysLocalManageDwr" scope="prototype">
+		<property name="sysLocalService" ref="sysLocalService"/>
+	</bean>
+	<!-- yzy-->
+</beans>

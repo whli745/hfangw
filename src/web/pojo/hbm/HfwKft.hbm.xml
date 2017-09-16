@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="web.pojo.HfwKft" table="T_HFW_KFT" lazy="false">
+		<id name="oid" type="java.lang.String">
+			<column name="OID" />
+			<generator class="uuid" />
+		</id>
+		<property name="housing_proj_id" type="java.lang.String" column="HOUSING_PROJ_ID" />
+		<property name="jhdd" type="java.lang.String" column="JHDD" />
+		<property name="kf_time" type="java.lang.String" column="KF_TIME" />
+		<property name="bm_end_time" type="java.util.Date" column="BM_END_TIME" />
+		
+		<many-to-one name="housingProject" column="housing_proj_id" unique="true" insert="false" update="false"  /> 
+	</class>
+</hibernate-mapping>

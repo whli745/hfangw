@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="web.pojo.HousingProject" table="T_HOUSING_PROJECT" lazy="false">
+		<id name="oid" type="java.lang.String">
+			<column name="OID" />
+			<generator class="uuid" />
+		</id>
+		<property name="area_id" type="java.lang.String" column="AREA_ID" />
+		<property name="address" type="java.lang.String" column="ADDRESS" />
+		<property name="sale_hous_status" type="java.lang.String" column="SALE_HOUS_STATUS" />
+		<property name="hous_type" type="java.lang.String" column="HOUS_TYPE" />
+		<property name="building_type" type="java.lang.String" column="BUILDING_TYPE" />
+		<property name="hous_acreage" type="java.lang.String" column="HOUS_ACREAGE" />
+		<property name="launch_time" type="java.lang.String" column="LAUNCH_TIME" />
+		<property name="sales_line" type="java.lang.String" column="SALES_LINE" />
+		<property name="discount" type="java.lang.String" column="DISCOUNT" />
+		<property name="latest_opening" type="java.lang.String" column="LATEST_OPENING" />
+		<property name="deco_standard" type="java.lang.String" column="DECO_STANDARD" />
+		<property name="period_right" type="java.lang.String" column="PERIOD_RIGHT" />
+		<property name="search_unit_price" type="java.lang.String" column="SEARCH_UNIT_PRICE" />
+		<property name="proj_type" type="java.lang.String" column="PROJ_TYPE" />
+		<property name="hot_sell_label" type="java.lang.String" column="HOT_SELL_LABEL" />
+		<property name="proj_name" type="java.lang.String" column="PROJ_NAME" />
+		<property name="pics" type="java.lang.String" column="PICS" />
+		<property name="pics_desc" type="java.lang.String" column="PICS_DESC" />
+		<property name="lrDate" type="java.util.Date" column="LR_DATE" />
+		<property name="del_flag" type="java.lang.String" column="DEL_FLAG" />
+		<property name="lnglat" type="java.lang.String" column="LNGLAT" />
+		<property name="attention" type="java.lang.Integer" column="ATTENTION" />
+		<many-to-one name="sysArea" class="pt.xtgl.jcgl.pojo.SysArea" column="AREA_ID" insert="false" update="false"/>
+		<many-to-one name="shs_dict" class="pt.xtgl.jcgl.pojo.SysDict" column="SALE_HOUS_STATUS" insert="false" update="false"/>
+		<one-to-one name="hfwKft" property-ref="housingProject"></one-to-one>
+		
+		<bag name="priceList" order-by="val_5 asc" lazy="true" inverse="true" cascade="none">
+		    <key column="HOUSING_PROJ_ID" />
+		    <one-to-many class="web.pojo.HousingProjectPrice"/>
+		</bag>
+
+		<bag name="packetList" order-by="create_time desc" lazy="true" inverse="true" cascade="none" where="is_del=0">
+			<key column="houseId" />
+			<one-to-many class="web.pojo.RedPacket"/>
+		</bag>
+
+	</class>
+</hibernate-mapping>

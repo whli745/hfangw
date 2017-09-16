@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+	<bean id="sysDictAction" class="pt.xtgl.jcgl.action.SysDictAction"
+		scope="prototype">
+		<property name="sysDictService" ref="sysDictService" />
+	</bean>
+	<bean id="indexAction" class="pt.xtgl.jcgl.action.IndexAction" scope="prototype">
+		<property ref="sysModuleService" name="sysModuleService"></property>
+		<property ref="sysRoleService" name="sysRoleService"></property>
+		<property ref="sysUserRoleService" name="sysUserRoleService"></property>
+	</bean>
+	<bean id="logInfoAction" class="pt.xtgl.jcgl.action.LogInfoAction"
+		scope="prototype">
+		<property name="logActionDescService" ref="logActionDescService" />
+		<property name="logService" ref="logService" />
+		<property name="sysDictService" ref="sysDictService" />
+		<property name="sysAreaService" ref="sysAreaService" />
+	</bean>
+	<bean id="sysUserAction" class="pt.xtgl.jcgl.action.SysUserAction"
+		scope="prototype">
+		<property ref="sysUserService" name="sysUserService"></property>
+		<property ref="sysDictService" name="sysDictService"></property>
+		<property ref="sysRoleService" name="sysRoleService"></property>
+		<property ref="sysUserRoleService" name="sysUserRoleService"></property>
+		<property ref="sysAreaService" name="sysAreaService"></property>
+	</bean>
+	<bean id="sysModuleAction" class="pt.xtgl.jcgl.action.SysModuleAction"
+		scope="prototype">
+		<property ref="sysModuleService" name="sysModuleService"></property>
+	</bean>
+	<bean id="sysRoleAction" class="pt.xtgl.jcgl.action.SysRoleAction"
+		scope="prototype">
+		<property ref="sysRoleService" name="sysRoleService"></property>
+		<property ref="sysDictService" name="sysDictService"></property>
+		<property ref="sysAreaService" name="sysAreaService"></property>
+	</bean>
+	<bean id="sysOrganAction" class="pt.xtgl.jcgl.action.SysOrganAction"
+		scope="prototype">
+		<property name="sysOrganService" ref="sysOrganService" />
+		<property name="sysAreaService" ref="sysAreaService" />
+	</bean>
+	<bean id="sysAreaAction" class="pt.xtgl.jcgl.action.SysAreaAction"
+		scope="prototype">
+		<property ref="sysAreaService" name="sysAreaService"></property>
+	</bean>
+	<bean id="loginAction" class="pt.xtgl.jcgl.action.LoginAction" scope="prototype">
+		<property ref="sysUserService" name="sysUserService"></property>
+	</bean>
+	<!--公告 -->
+	<bean id="sysNoticeAction" class="pt.xtgl.jcgl.action.SysNoticeAction"
+		scope="prototype">
+		<property ref="sysNoticeService" name="sysNoticeService"></property>
+		<property ref="sysDictService" name="sysDictService"></property>
+		<property ref="sysAreaService" name="sysAreaService"></property>
+	</bean>
+	<!--节假日 -->
+	<bean id="sysHolidayAction" class="pt.xtgl.jcgl.action.SysHolidayAction"
+		scope="prototype">
+		<property name="sysHolidayService" ref="sysHolidayService" />
+	</bean>
+	<!-- 自定义界面  -->
+	<bean id="sysWorkbenchAction" class="pt.xtgl.jcgl.action.SysWorkbenchAction"
+		scope="prototype">
+		<property name="sysWorkbenchService" ref="sysWorkbenchService" />
+		<property name="sysModuleService" ref="sysModuleService" />
+		<property name="sysDictService" ref="sysDictService" />
+		<property name="sysRoleService" ref="sysRoleService" />
+		<property name="sysAreaService" ref="sysAreaService" />
+	</bean>
+	<!--多文件上传-->
+	<bean id="uploadifyAction" class="util.base.action.UploadifyAction" scope="prototype" autowire="byName"></bean>
+	<!--菜单图片上传-->
+	<bean id="uploadAction" class="util.base.action.UploadAction" scope="prototype" autowire="byName"></bean>
+	<!--栏目信息管理-->
+	<bean id="contentManagerAction" class="pt.wzgl.nrgl.action.ContentManagerAction" scope="prototype" autowire="byName"/>
+	<!-- 前台相关配置  start-->
+	<bean id="webIndexAction" class="web.action.WebIndexAction" scope="prototype" autowire="byName"/>
+	<bean id="webLoginAction" class="web.action.WebLoginAction" scope="prototype" autowire="byName"/>
+	<!-- 前台相关配置  end-->
+	
+	<!-- 证件办理分类  -->
+	<bean id="zjblTypeAction" class="pt.wzgl.pzgl.action.ZjblTypeAction" scope="prototype" autowire="byName"/>
+	<!-- 证件办理分类  -->
+	<bean id="ggfwTypeAction" class="pt.wzgl.pzgl.action.GgfwTypeAction" scope="prototype" autowire="byName"/>
+	<!-- 系统参数设置  -->
+	<bean id="sysAppParamAction" class="pt.xtgl.jcgl.action.SysAppParamAction" scope="prototype" autowire="byName"/>
+	<!-- 网站用户菜单  -->
+	<bean id="netUserModuleAction" class="pt.wzgl.pzgl.action.NetUserModuleAction" scope="prototype" autowire="byName"/>
+	<!-- 网站用户  -->
+	<bean id="netUserAction" class="pt.wzgl.pzgl.action.NetUserAction" scope="prototype" autowire="byName"/>
+	
+	
+	<bean id="buidingManageAction" class="web.action.BuidingManageAction" scope="prototype" autowire="byName"/>
+	<bean id="secondHandHouseManageAction" class="web.action.SecondHandHouseManageAction" scope="prototype" autowire="byName"/>
+	<bean id="redpacketManageAction" class="web.action.RedpacketManageAction" scope="prototype" autowire="byName"/>
+	
+	<bean id="quartzAction" class="quartz.QuartzAction" scope="prototype" autowire="byName"/>
+</beans>

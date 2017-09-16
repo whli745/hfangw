@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	
+	<display-name>SSH2FrameWork</display-name>	
+	<welcome-file-list>
+		<welcome-file>initWebIndex.action</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<servlet-name>FileDownload</servlet-name>
+		<servlet-class>util.servlet.FileDownload</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FileDownload</servlet-name>
+		<url-pattern>/FileDownload</url-pattern>
+	</servlet-mapping>
+	<!--图片验证码-->
+	<servlet>    
+		<servlet-name>ImageServlet</servlet-name>    
+		<servlet-class>util.servlet.ImageServlet</servlet-class>  
+	</servlet>  
+	<servlet-mapping>    
+		<servlet-name>ImageServlet</servlet-name>    
+		<url-pattern>/imageServlet</url-pattern>  
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>initparam</servlet-name>    
+		<servlet-class>util.servlet.InitParam</servlet-class>
+		<init-param>
+			<param-name>run_mode</param-name>
+			<!--dubug、run-->
+			<param-value>debug</param-value>
+		</init-param>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ajax</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+		<!-- session 网站用户session过期时间 分钟 -->
+		<init-param>
+			<param-name>WEB_SESSION_TIMEOUT</param-name>
+			<param-value>180</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<!-- hibernate数据访问session -->
+	<filter>
+		<filter-name>openSessionInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+		<init-param>
+			<param-name>sessionFactoryBeanName</param-name>
+			<param-value>sessionFactory</param-value>
+		</init-param>
+		<init-param>
+			<param-name>singleSession</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>flushMode</param-name>
+			<param-value>AUTO</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>  
+		<filter-name>openSessionInViewFilter</filter-name>  
+		<url-pattern>/*</url-pattern>  
+	</filter-mapping>
+	<!-- 图片批量上传 -->
+	<servlet>
+	    <servlet-name>FileUploadServlet</servlet-name>
+	    <servlet-class>util.FileUploadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>FileUploadServlet</servlet-name>
+	    <url-pattern>/servlet/FileUploadServlet.htm</url-pattern>
+    </servlet-mapping>
+	<!-- dwr begin -->
+	<listener>
+		<listener-class>org.directwebremoting.servlet.DwrListener</listener-class>
+	</listener>
+	
+	<servlet>
+		<servlet-name>dwr-invoker</servlet-name>
+		<servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+	
+		<init-param>
+			<param-name>fileUploadMaxBytes</param-name>
+			<param-value>25000</param-value>
+		</init-param>
+	
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>true</param-value>
+		</init-param>
+  
+		<init-param>
+			<param-name>accessLogLevel</param-name>
+			<param-value>runtimeexception</param-value>
+		</init-param>
+    
+		<init-param>
+			<param-name>activeReverseAjaxEnabled</param-name>
+			<param-value>true</param-value>
+		</init-param>
+
+		<init-param>
+			<param-name>initApplicationScopeCreatorsAtStartup</param-name>
+			<param-value>true</param-value>
+		</init-param>
+
+		<init-param>
+			<param-name>jsonRpcEnabled</param-name>
+			<param-value>true</param-value>
+		</init-param>
+
+		<init-param>
+			<param-name>jsonpEnabled</param-name>
+			<param-value>true</param-value>
+		</init-param>
+
+		<init-param>
+			<param-name>preferDataUrlSchema</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>config-system</param-name>
+			<param-value>/WEB-INF/classes/dwr.xml</param-value>
+		</init-param>
+		
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+   
+	<servlet-mapping>
+		<servlet-name>dwr-invoker</servlet-name>
+		<url-pattern>/dwr/*</url-pattern>
+	</servlet-mapping>
+	<!-- dwr end -->
+	
+	<!-- 编码 filter -->
+	<filter>
+		<filter-name>SetCharacterEncodingFilter</filter-name>
+		<filter-class>util.filter.SetCharacterEncodingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>SetCharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!--配置Struts2-->
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>util.filter.StrutsFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping>
+	
+	
+	<!--配置Spring-->
+	<listener>
+		<!--配置Spring的上下文加载监听-->
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>              
+	</listener>
+	<!-- 加载时读取系统菜单 -->
+	<listener>
+		<listener-class>util.listener.AutoLoadListener</listener-class>
+	</listener>
+	
+	<!-- session 平台过期时间 分钟 -->
+	<session-config> 
+   		<session-timeout>30</session-timeout> 
+	</session-config> 
+	
+	<!--WebService CXF配置 begin-->
+	<servlet>
+		<servlet-name>CXFServlet</servlet-name>
+		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CXFServlet</servlet-name>
+		<url-pattern>/WebService/*</url-pattern>
+	</servlet-mapping>
+	<!--WebService CXF配置 end-->
+</web-app>

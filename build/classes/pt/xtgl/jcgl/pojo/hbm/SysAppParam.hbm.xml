@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<class name="pt.xtgl.jcgl.pojo.SysAppParam" table="T_SYS_APP_PARAM">
+		<id name="paramId" type="java.lang.String" column="PARAM_ID">
+			<generator class="uuid" />
+		</id>
+		<property name="paramCode" column="PARAM_CODE" type="java.lang.String" length="50" />
+		<property name="parentId" column="PARENT_ID" type="java.lang.String" length="32" />
+		<property name="paramVal" column="PARAM_VAL" type="java.lang.String" length="200" />
+		<property name="paramName" column="PARAM_NAME" type="java.lang.String" length="100" />
+		<property name="paramDesc" column="PARAM_DESC" type="java.lang.String" length="500" />
+		<property name="paramPath" column="PARAM_PATH" type="java.lang.String" length="1000" />
+		<property name="paramSort" column="PARAM_SORT" type="java.lang.String" length="2"/>
+		<property name="delFlag" column="DEL_FLAG" type="java.lang.String" length="2"/>
+		<property name="usingFlag" column="USING_FLAG" type="java.lang.String" length="2"/>
+		<property name="updateTime" type="java.util.Date" column="UPDATE_TIME" length="23" />
+		<property name="createTime" type="java.util.Date" column="CREATE_TIME" length="23" update="false"/>
+	</class>
+</hibernate-mapping>

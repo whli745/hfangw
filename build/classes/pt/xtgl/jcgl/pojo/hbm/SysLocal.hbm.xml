@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="pt.xtgl.jcgl.pojo.SysLocal" table="T_SYS_LOCAL">
+		<id name="localId" type="java.lang.String">
+			<column name="LOCAL_ID" />
+			<generator class="uuid" />
+		</id>
+		<property name="topId" type="java.lang.String" column="TOP_ID" not-null="false" length="32" />
+		<property name="localCode" type="java.lang.String" column="LOCAL_CODE" not-null="false" length="100" />
+		<property name="localName" type="java.lang.String" column="LOCAL_NAME" not-null="false" length="100" />
+		<property name="topCode" type="java.lang.String" column="TOP_CODE" not-null="false" length="100" />
+		<property name="localLevel" type="java.lang.String" column="LOCAL_LEVEL" not-null="false" length="1" />
+		<property name="delFlag" type="java.lang.String" column="DEL_FLAG" not-null="false" length="1" />
+		<property name="localSort" type="java.lang.String" column="LOCAL_SORT" not-null="false" length="10" />
+		<property name="localPath" type="java.lang.String" column="LOCAL_PATH" not-null="false" length="500" />
+	</class>
+</hibernate-mapping>

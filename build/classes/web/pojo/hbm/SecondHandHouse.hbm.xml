@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="web.pojo.SecondHandHouse" table="T_SECOND_HAND_HOUSE" lazy="false">
+		<id name="oid" type="java.lang.String">
+			<column name="OID" />
+			<generator class="uuid" />
+		</id>
+		<property name="area_id" type="java.lang.String" column="AREA_ID" />
+		<property name="house_name" type="java.lang.String" column="HOUSE_NAME" />
+		<property name="acreage_dict_id" type="java.lang.String" column="ACREAGE_DICT_ID" />
+		<property name="hous_type_dict_id" type="java.lang.String" column="HOUS_TYPE_DICT_ID" />
+		<property name="building_age_dict_id" type="java.lang.String" column="BUILDING_AGE_DICT_ID" />
+		<property name="floor_dict_id" type="java.lang.String" column="FLOOR_DICT_ID" />
+		<property name="building_type_dict_id" type="java.lang.String" column="BUILDING_TYPE_DICT_ID" />
+		<property name="selling_price_dict_id" type="java.lang.String" column="SELLING_PRICE_DICT_ID" />
+		<property name="selling_price" type="java.lang.String" column="SELLING_PRICE" />
+		<property name="refe_down_payment" type="java.lang.String" column="REFE_DOWN_PAYMENT" />
+		<property name="refe_month_for" type="java.lang.String" column="REFE_MONTH_FOR" />
+		<property name="unit_price" type="java.lang.String" column="UNIT_PRICE" />
+		<property name="hous_type" type="java.lang.String" column="HOUS_TYPE" />
+		<property name="acreage" type="java.lang.String" column="ACREAGE" />
+		<property name="orientations" type="java.lang.String" column="ORIENTATIONS" />
+		<property name="floor" type="java.lang.String" column="FLOOR" />
+		<property name="deco_standard" type="java.lang.String" column="DECO_STANDARD" />
+		<property name="address" type="java.lang.String" column="ADDRESS" />
+		<property name="village" type="java.lang.String" column="VILLAGE" />
+		<property name="lng_lat" type="java.lang.String" column="LNG_LAT" />
+		<property name="building_age" type="java.lang.String" column="BUILDING_AGE" />
+		<property name="pics_1" type="java.lang.String" column="PICS_1" />
+		<property name="pics_2" type="java.lang.String" column="PICS_2" />
+		<property name="labels" type="java.lang.String" column="LABELS" />
+		<property name="detail_info" type="java.lang.String" column="DETAIL_INFO" />
+		<property name="del_flag" type="java.lang.String" column="DEL_FLAG" />
+		<property name="latest_edit_date" type="java.util.Date" column="LATEST_EDIT_DATE" />
+		
+		<many-to-one name="sysArea" class="pt.xtgl.jcgl.pojo.SysArea" column="AREA_ID" insert="false" update="false"/> 
+	</class>
+</hibernate-mapping>
